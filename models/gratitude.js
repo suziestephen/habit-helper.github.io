@@ -1,15 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     
-    const Entries = sequelize.define('Entries', {
-      
-      habitName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1],
-        },
-      },  
-
+    const Gratitude = sequelize.define('Gratitude', {
+       
 
     gratefulFor: {
       type: DataTypes.TEXT,
@@ -20,12 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     
   },
 
+  date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    validate: {
+      len: [1],
+  },  
+},
+
 },
   
   
   {timestamps: false});
   
-    return Entries;
+    return Gratitude;
   };
   
   

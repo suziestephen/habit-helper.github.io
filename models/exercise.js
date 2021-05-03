@@ -1,15 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
-    const Entries = sequelize.define('Entries', {
+    const Exercise = sequelize.define('Exercise', {
     
- 
-      habitName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1],
-        },
-      },  
-
+   
       exercise: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -17,11 +9,20 @@ module.exports = (sequelize, DataTypes) => {
           len: [1],
       },  
     },
+
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      validate: {
+        len: [1],
+    },  
+  },
+  
   },
   
   {timestamps: false});
   
-    return Entries;
+    return Exercise;
   };
   
   
