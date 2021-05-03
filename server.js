@@ -4,7 +4,7 @@ const path = require("path");
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 4000;
-const apiRoutes = require("./routes/apiRoutes");
+// const apiRoutes = require("./routes/apiRoutes");
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -22,8 +22,8 @@ if (process.env.NODE_ENV === "production") {
 // Static directory
 app.use(express.static('public'));
 
-// Routes
-app.use("/api", apiRoutes);
+// // Routes
+// app.use("/api", apiRoutes);
 
 // REACT 
 // // Send every request to the React app
