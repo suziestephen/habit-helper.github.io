@@ -1,43 +1,46 @@
 const router = require("express").Router();
 
 
-// module.exports = (app) => { ???
 
 // Matches with "/api/entries"
 router.route("/api/entries")
 
-    // GET habit 
-    get((req, res) => {
-        db.Gratitude.findOne({  // do I need to run a call for all of these for each table
-            where: {
-                habit: req.params.habit,
-            },
-        }).then((db) => res.json(dbHabits));
-    })
 
-    // CHECK GET route for getting the habit entries
+    // CHECK GET route for getting the gratitude entries
     .get((req, res) => {
-        db.History.findAll({}).then((dbHistory) => res.json(dbHistory));
+        db.Gratitude.findAll({}).then((dbGratitude) => res.json(dbGratitude));
     })
 
-
-    // CHECK Get route for returning habit entries of a specific type
+    // CHECK GET route for getting the reading entries
     .get((req, res) => {
-        db.History.findAll({ 
-            where: {
-                habit: req.params.habit,
-            },
-        }).then((dbHistory) => {
-            res.json(dbHistory);
-        });
+        db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
     })
 
-// Matches with "/api/entries/:id"
-router
-  .route("/api/entires:id")
-  .get(habitsController.findById)
-  .put(habitsController.update)
-  .delete(habitsController.remove);
+    // CHECK GET route for getting the exercise entries
+    .get((req, res) => {
+        db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
+    })
+
+
+    // POST route for saving a new gratitude entry
+    .post((req, res) => {
+        console.log(req.body);
+        db.Gratitude.create({
+            gratefulFul: req.body.gratefulFor,
+            date: req.body.date,
+        }).then((dbGratitude) => res.json(dbGratitude));
+    })
+
+    // PUT route for updating gratitude entries 
+    .put((req, res) => {
+        db.Gratitude.update(req.body, {
+            where: {
+                id: req.body.id,
+            },
+        }).then((dbGratitude) => res.json(dbGratitude));
+    });
+
+// need for reading and exercise
 
 module.exports = router;
 
