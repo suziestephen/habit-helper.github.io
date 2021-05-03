@@ -1,8 +1,10 @@
 const express = require('express');
+const path = require("path");
 
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 4000;
+const apiRoutes = require("./routes/apiRoutes");
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -11,12 +13,26 @@ const db = require('./models');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
+  
+
 // Static directory
 app.use(express.static('public'));
 
 // Routes
-require('./routes/api-routes.js')(app);
-// require('./routes/html-routes.js')(app); ??
+app.use("/api", apiRoutes);
+
+// REACT 
+// // Send every request to the React app
+// // Define any API routes before this runs
+// app.get("*", function(req, res) {
+//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
+//   });
+  
+
 
 // Syncing our sequelize models and then starting our Express app
 
