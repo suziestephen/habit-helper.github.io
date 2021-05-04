@@ -4,7 +4,9 @@ const path = require("path");
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 4000;
-// const apiRoutes = require("./routes/apiRoutes");
+const routes = require("./routes");
+
+
 
 // Requiring our models for syncing
 const db = require('./models');
@@ -13,17 +15,21 @@ const db = require('./models');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
+// // Serve up static assets (usually on heroku)
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("client/build"));
+//   }
   
 
 // Static directory
 app.use(express.static('public'));
 
-// // Routes
-// app.use("/api", apiRoutes);
+// Routes
+
+// router.use("/api", apiRoutes);
+
+// const routes = require("./routes");
+app.use(routes);
 
 // REACT 
 // // Send every request to the React app
