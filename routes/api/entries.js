@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const db = 
+const db = require("../models");
 
 
 
