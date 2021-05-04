@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const historyRoutes = require("./entries");
+const entriesRoutes = require("./entries");
 
 // Habit routes
 router.use("/entries", entriesRoutes);
