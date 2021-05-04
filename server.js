@@ -25,10 +25,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
-
-// router.use("/api", apiRoutes);
-
-// const routes = require("./routes");
 app.use(routes);
 
 // REACT 
