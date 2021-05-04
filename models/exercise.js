@@ -1,7 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Exercise = sequelize.define('Exercise', {
     
-   
       exercise: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -10,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
       },  
     },
 
-    date: {
+    dayOf: {
       type: DataTypes.DATE,
       allowNull: false,
       validate: {
         len: [1],
     },  
   },
-  
+
   },
   
   {timestamps: false});

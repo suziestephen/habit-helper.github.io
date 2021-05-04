@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
 
-      date: {
+      dayOf: {
         type: DataTypes.DATE,
         allowNull: false,
         validate: {
