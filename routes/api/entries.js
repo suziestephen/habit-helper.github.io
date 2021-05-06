@@ -50,11 +50,11 @@ router.route("/gratitude")
     router.route("/exercise")
     .post((req, res) => {
         console.log(req.body);
-        db.Exercise.create({
+        db.Exercises.create({
             exercise: req.body.exercise,
-            location: req.body.location, 
+            located: req.body.located, 
             dayOf: req.body.dayOf,
-        }).then((dbExercise) => res.json(dbExercise));
+        }).then((dbExercises) => res.json(dbExercises));
     })
 
 //     // PUT route for updating gratitude entries 
@@ -87,7 +87,6 @@ router.route("/gratitude")
         }).then((dbExercise) => res.json(dbExercise));
     });
 
-// // need for reading and exercise
 
 module.exports = router;
 
