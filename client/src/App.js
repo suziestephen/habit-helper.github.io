@@ -5,8 +5,8 @@ import Header from "./components/Header/Header.js";
 import Wrapper from "./components/Wrapper/Wrapper.js";
 import Footer from "./components/Footer/Footer";
 
-import Search from "./pages/Search";
-import Saved from "./pages/Saved";
+import Entry from "./pages/Entry";
+import Habits from "./pages/Habits";
 
 
 class App extends Component {
@@ -18,9 +18,9 @@ class App extends Component {
           <NavBar />
           <Header />
           <Wrapper>
-            <Route exact path="/" component={Search} />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/saved" component={Saved} />
+            <Route exact path="/" component={Entry} />
+            <Route exact path="/search" component={Entry} />
+            <Route exact path="/saved" component={Habits} />
           <Footer />
           </Wrapper>
         </div>
