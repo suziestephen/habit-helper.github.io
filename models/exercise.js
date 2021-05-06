@@ -9,6 +9,14 @@ module.exports = (sequelize, DataTypes) => {
       },  
     },
 
+    located: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [1],
+    },  
+  },
+
     dayOf: {
       type: DataTypes.DATE,
       allowNull: false,
