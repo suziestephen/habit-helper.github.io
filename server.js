@@ -1,7 +1,8 @@
 const express = require('express');
+const session = require("express-session");
 const path = require("path");
 
-//Passport ?? 
+//Passport 
 const passport = require("./config/passport");
 
 // Sets up the Express App
@@ -14,6 +15,8 @@ const routes = require("./routes");
 // Requiring our models for syncing
 const db = require('./models');
 
+
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,6 +25,17 @@ app.use(express.json());
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("client/build"));
 //   }
+
+app.use(
+  session({ secret: "heroku", resave: true, saveUninitialized: true, cookie: {httpOnly: false}  })
+);
+
+
+// Initialize middleware, intialize passport
+app.use(passport.initialize());
+// Initialize middleware to alter the request object and deserialize "user" session ID from the request into a proper user object
+app.use(passport.session());
+
 
 
 // Static directory
