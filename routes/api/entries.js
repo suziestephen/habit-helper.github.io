@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const db = require("../..//models");
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 
 
@@ -8,26 +9,26 @@ const db = require("../..//models");
 
 router.route("/gratitude")
     // CHECK GET route for getting the gratitude entries
-    .get((req, res) => {
+    .get(isAuthenticated, (req, res) => {
         db.Gratitude.findAll({}).then((dbGratitude) => res.json(dbGratitude));
     })
 
     // CHECK GET route for getting the reading entries
     router.route("/reading")
-    .get((req, res) => {
+    .get(isAuthenticated, (req, res) => {
         db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
     })
 
     // CHECK GET route for getting the exercise entries
     router.route("/exercise")
-    .get((req, res) => {
+    .get(isAuthenticated, (req, res) => {
         db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
     })
 
 
 //     // POST route for saving a new gratitude entry
     router.route("/gratitude")
-    .post((req, res) => {
+    .post(isAuthenticated, (req, res) => {
         console.log(req.body);
         db.Gratitude.create({
             gratefulFor: req.body.gratefulFor,
@@ -37,7 +38,7 @@ router.route("/gratitude")
 
     //     // POST route for saving a new reading entry
     router.route("/reading")
-    .post((req, res) => {
+    .post(isAuthenticated, (req, res) => {
         console.log(req.body);
         db.Reading.create({
             book: req.body.book,
@@ -48,7 +49,7 @@ router.route("/gratitude")
 
     //     // POST route for saving a new exercise entry
     router.route("/exercise")
-    .post((req, res) => {
+    .post(isAuthenticated, (req, res) => {
         console.log(req.body);
         db.Exercises.create({
             exercise: req.body.exercise,
@@ -59,7 +60,7 @@ router.route("/gratitude")
 
 //     // PUT route for updating gratitude entries 
     router.route("/gratitude")
-    .put((req, res) => {
+    .put(isAuthenticated, (req, res) => {
         db.Gratitude.update(req.body, {
             where: {
                 id: req.body.id,
@@ -69,7 +70,7 @@ router.route("/gratitude")
 
     //     // PUT route for updating gratitude entries 
     router.route("/reading")
-    .put((req, res) => {
+    .put(isAuthenticated, (req, res) => {
         db.Reading.update(req.body, {
             where: {
                 id: req.body.id,
@@ -79,7 +80,7 @@ router.route("/gratitude")
 
     //     // PUT route for updating gratitude entries 
     router.route("/exercise")
-    .put((req, res) => {
+    .put(isAuthenticated, (req, res) => {
         db.Exercise.update(req.body, {
             where: {
                 id: req.body.id,
