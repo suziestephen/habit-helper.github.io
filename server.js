@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require("path");
 
+//Passport ?? 
+const passport = require("./config/passport");
+
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -19,7 +22,7 @@ app.use(express.json());
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("client/build"));
 //   }
-  
+
 
 // Static directory
 app.use(express.static('public'));
