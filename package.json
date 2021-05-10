@@ -1,29 +1,29 @@
 {
-    "name": "habithelper",
-    "version": "1.0.0",
-    "description": "better self-care",
-    "main": "server.js",
-    "dependencies": {
-      "axios": "^0.21.1",
-      "express": "^4.17.1",
-      "mysql": "^2.18.1",
-      "mysql2": "^2.2.5",
-      "path": "^0.12.7",
-      "sequelize": "^6.6.1"
-    },
-    "scripts": {
-      "test": "mocha",
-      "start": "node server.js"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/suziestephen/habit-helper.github.io"
-    },
-    "author": "Suzie",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/suziestephen/habit-helper.github.io/issues"
-    },
-    "homepage": "https://github.com/suziestephen/habit-helper.github.io#readme"
-  }
-  
+  "name": "habithelper",
+  "version": "1.0.0",
+  "description": "better self-care",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7",
+    "sequelize": "^6.6.1"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suziestephen/habit-helper.github.io"
+  },
+  "author": "Suzie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suziestephen/habit-helper.github.io/issues"
+  },
+  "homepage": "https://github.com/suziestephen/habit-helper.github.io#readme"
+}

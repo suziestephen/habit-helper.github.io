@@ -19,8 +19,8 @@ class App extends Component {
           <Header />
           <Wrapper>
             <Route exact path="/" component={Entry} />
-            <Route exact path="/search" component={Entry} />
-            <Route exact path="/saved" component={Habits} />
+            <Route exact path="/entries" component={Entry} />
+            <Route exact path="/habits" component={Habits} />
           <Footer />
           </Wrapper>
         </div>
