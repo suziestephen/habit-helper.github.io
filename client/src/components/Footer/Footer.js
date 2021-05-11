@@ -6,7 +6,7 @@ function Footer() {
 
         <div className="footer"> 
             <div className="container text-dark">
-             <p>Suzie Stephen React Google Book Search 2021</p>
+             <p>Suzie Stephen | Habit Helper 2021</p>
             </div>
         </div>
     );
