@@ -1,11 +1,23 @@
 import React, { Component } from "react";
+import LoginForm from "../components/Login/LoginForm";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import API from "../utils/API";
 
 
 
-//saved entries 
+//login page
 class Login extends React.Component {
 
+    render(){
+    return (
+    
+        <div>
+            <LoginForm />
+        </div>
+        
+        )
+    
+    }
 }
 
 export default Login;

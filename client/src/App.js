@@ -5,8 +5,9 @@ import Header from "./components/Header/Header.js";
 import Wrapper from "./components/Wrapper/Wrapper.js";
 import Footer from "./components/Footer/Footer";
 
-import Entry from "./pages/Entry";
-import Habits from "./pages/Habits";
+// import Entry from "./pages/Entry";
+// import Habits from "./pages/Habits";
+import SignupFrom from "./pages/Signup";
 
 
 class App extends Component {
@@ -17,14 +18,16 @@ class App extends Component {
         <div>
           <NavBar />
           <Header />
-          <Wrapper>
-            <Route exact path="/" component={Entry} />
+          <Wrapper> 
+            <Route exact path="/" component={SignupFrom} />
+  
+            {/* <Route exact path="/" component={Entry} />
             <Route exact path="/entries" component={Entry} />
-            <Route exact path="/habits" component={Habits} />
-          <Footer />
+            <Route exact path="/habits" component={Habits} /> */} 
+           <Footer />
           </Wrapper>
         </div>
-      </Router>
+     </Router>
     )
   };
 };

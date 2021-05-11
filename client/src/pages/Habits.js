@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import API from "../utils/API";
+// import React, { Component } from "react";
+// import ReactDOM from "react-dom";
+// import API from "../utils/API";
 
 
 
-//saved entries 
-class Habits extends React.Component {
+// //saved entries 
+// class Habits extends React.Component {
 
 
-    
-}
 
-export default Habits;
+// }
+
+// export default Habits;
