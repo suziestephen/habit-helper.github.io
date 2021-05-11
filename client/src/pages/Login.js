@@ -4,10 +4,8 @@ import API from "../utils/API";
 
 
 //saved entries 
-class Habits extends React.Component {
+class Login extends React.Component {
 
-
-    
 }
 
-export default Habits;
+export default Login;

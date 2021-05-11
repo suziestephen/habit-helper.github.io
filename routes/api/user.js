@@ -33,7 +33,7 @@ const db = require("../..//models");
         db.user
     })
 
-    //Signup new user
+    //Signup new user  //api/user//users
     router.route("/users")
     .post((req,res) => {
         db.user
