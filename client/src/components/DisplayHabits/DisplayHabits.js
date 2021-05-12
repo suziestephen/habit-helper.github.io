@@ -13,7 +13,7 @@ class DisplayHabits extends Component {
 
 
     render (){
-        const dataMySQL = this.state.gratitude.map((item, index)=>{
+        const dataMySQL = this.state.map((item, index)=>{
             var gratitude = ['gratefulFor: ', item.gratefulFor,', dayOf: ', item.dayOf,].join(' ');
             return <p key={index}>{gratitude}</p>;
           })
