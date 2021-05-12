@@ -25,22 +25,39 @@ export default {
   },
 
 
-  // Gets all gratitude entries
+  // Gets all exercise entries
   getExercise: function() {
     return axios.get(site + "/api/entries/exercise");
   },
-  // Gets the gratitude entries with the given id
+  // Gets the exercise entries with the given id
   getExercise: function(id) {
     return axios.get(site + "/api/entries/exercise"+ id);
   },
-  // Deletes the gratitude entries with the given id
+  // Deletes the exercise entries with the given id
   deleteExercise: function(id) {
     return axios.delete(site + "/api/entries/exercise" + id);
   },
-  // Saves a gratitude entries to the database
+  // Saves a exercise entries to the database
   saveExercise: function(exerciseData) {
     return axios.post(site + "/api/entries/exercise", exerciseData);
-  }
+  },
+
+    // Gets all reading entries
+    getReading: function() {
+      return axios.get(site + "/api/entries/reading");
+    },
+    // Gets the reading entries with the given id
+    getReading: function(id) {
+      return axios.get(site + "/api/entries/reading"+ id);
+    },
+    // Deletes the reading entries with the given id
+    deleteReading: function(id) {
+      return axios.delete(site + "/api/entries/reading" + id);
+    },
+    // Saves a reading entries to the database
+    saveReading: function(readingData) {
+      return axios.post(site + "/api/entries/reading", readingData);
+    }
 
 
 };
