@@ -17,7 +17,7 @@ class Gratitude extends Component {
             <div className="Gratitude">
             <Container fluid>
             <Row>
-                <CreateGratitudeForm onSubmit={fields => this.onSubmit(fields)} />
+                <CreateGratitudeForm  />
             </Row>
             </Container>
             </div>
