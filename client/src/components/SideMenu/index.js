@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MDBButton from "mdbreact";
+import Button from "react-bootstrap/Button";
 
 
 
@@ -9,7 +9,7 @@ class SideMenu extends Component {
 
   render() {
     return (
-        <MDButton Test />
+        <Button Test />
  
       );
     }
