@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors")
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 3001;
 const db = require('./models');
 
 
@@ -15,6 +16,10 @@ app.use(express.static('public'));
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static("client/build"));
 // }
+
+app.use(cors())
+ 
+
 
 //Routes
 const routes = require("./routes");
