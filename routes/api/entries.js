@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const db = require("../..//models");
-const isAuthenticated = require("../../config/middleware/isAuthenticated");
+// const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 
 
@@ -8,10 +8,10 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
     router.route("/gratitude")
     // CHECK GET route for getting the gratitude entries
-    .get(isAuthenticated, (req, res) => {
+    .get((req, res) => {
         db.Gratitude.findAll({}).then((dbGratitude) => res.json(dbGratitude));
     })
-    .post(isAuthenticated, (req, res) => {
+    .post((req, res) => {
         console.log(req.body);
         db.Gratitude.create({
             gratefulFor: req.body.gratefulFor,
@@ -21,13 +21,13 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
     // CHECK GET route for getting the reading entries
     router.route("/reading")
-    .get(isAuthenticated, (req, res) => {
+    .get((req, res) => {
         db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
     })
 
     // CHECK GET route for getting the exercise entries
     router.route("/exercise")
-    .get(isAuthenticated, (req, res) => {
+    .get((req, res) => {
         db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
     })
 
@@ -35,7 +35,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
     //     // POST route for saving a new reading entry
     router.route("/reading")
-    .post(isAuthenticated, (req, res) => {
+    .post((req, res) => {
         console.log(req.body);
         db.Reading.create({
             book: req.body.book,
@@ -46,7 +46,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
     //     // POST route for saving a new exercise entry
     router.route("/exercise")
-    .post(isAuthenticated, (req, res) => {
+    .post((req, res) => {
         console.log(req.body);
         db.Exercises.create({
             exercise: req.body.exercise,
@@ -57,7 +57,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 //     // PUT route for updating gratitude entries 
     router.route("/gratitude")
-    .put(isAuthenticated, (req, res) => {
+    .put((req, res) => {
         db.Gratitude.update(req.body, {
             where: {
                 id: req.body.id,
@@ -67,7 +67,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
     //     // PUT route for updating gratitude entries 
     router.route("/reading")
-    .put(isAuthenticated, (req, res) => {
+    .put((req, res) => {
         db.Reading.update(req.body, {
             where: {
                 id: req.body.id,
@@ -77,7 +77,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
     //     // PUT route for updating gratitude entries 
     router.route("/exercise")
-    .put(isAuthenticated, (req, res) => {
+    .put((req, res) => {
         db.Exercise.update(req.body, {
             where: {
                 id: req.body.id,
