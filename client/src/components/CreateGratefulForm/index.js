@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import { useStoreContext } from '../../utils/GlobalState';
-// import { ADD_GRATITUDE, LOADING } from '../../utils/action';
 import API from '../../utils/API';
 
 
@@ -20,10 +18,9 @@ class CreateGratitudeForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
-    this.setState({
-      gratefulFor: "",
-      dayOf: "",
+    API.saveGratitude({
+      gratefulFor: this.state.gratefulFor,
+      dayOf: this.state.dayOf,
     })
   };
 
