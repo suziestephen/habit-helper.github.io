@@ -1,15 +1,20 @@
-
 import axios from "axios";
 
 export default {
-  // Saves a user to the database
-  saveUser: function (userData) {
-    return axios.post("/api/users", userData).then(result => result.data);
+  // Gets all gratitude entries
+  getGratitude: function() {
+    return axios.get("/api/gratitude");
   },
-
-  
-  // Get the saved a user from the database
-  savedBooks: function () {
-    return axios.get("/api/users").then(result => result.data);
+  // Gets the gratitude entries with the given id
+  getGratitude: function(id) {
+    return axios.get("/api/gratitude/" + id);
+  },
+  // Deletes the gratitude entries with the given id
+  deleteGratitude: function(id) {
+    return axios.delete("/api/gratitude/" + id);
+  },
+  // Saves a gratitude entries to the database
+  saveGratitude: function(gratitudeData) {
+    return axios.post("/api/gratitude", gratitudeData);
   }
 };
