@@ -36,9 +36,9 @@ class ReadingForm extends Component {
         <Form className="entry-form">
           <label>
               <input 
-                name="reading"
+                name="book"
                 placeholder='Book title' 
-                value={this.state.exercise} 
+                value={this.state.book} 
                 onChange={e => this.change(e)}
               />
             </label>
@@ -47,7 +47,7 @@ class ReadingForm extends Component {
               <input 
                 name="pages"
                 placeholder='Number of pages' 
-                value={this.state.located} 
+                value={this.state.pages} 
                 onChange={e => this.change(e)}
               />
             </label>
