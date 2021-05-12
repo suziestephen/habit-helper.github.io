@@ -1,7 +1,14 @@
-.jumbotron h1 {
+.header h1 {
     color: #120f72;
 }
 
-.jumbotron h3 {
-    color: #ca0000;
+.header h3 {
+    color: #eb7be1;
+}
+
+.header-container {
+    padding: 40px;
+    text-align: center;
+
+
 }

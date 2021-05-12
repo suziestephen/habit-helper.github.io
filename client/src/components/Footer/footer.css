@@ -1,6 +1,11 @@
 .footer p {
     size: 20px;
     color: #01ac2c;
-    text-align: center;
 }
 
+
+.footer-container {
+  text-align: center;
+  float: center;
+  padding: 50px
+}

@@ -6,6 +6,11 @@ const db = require("../..//models");
 
 // Matches with "/api/entries"
 
+    router.route("/")
+    .get((req, res) => {
+        db.HabitHelper.findAll({}).then((dbHabitHelper) => res.json(dbHabitHelper));
+    })
+
     router.route("/gratitude")
     // CHECK GET route for getting the gratitude entries
     .get((req, res) => {
@@ -48,11 +53,11 @@ const db = require("../..//models");
     router.route("/exercise")
     .post((req, res) => {
         console.log(req.body);
-        db.Exercises.create({
+        db.Exercise.create({
             exercise: req.body.exercise,
             located: req.body.located, 
             dayOf: req.body.dayOf,
-        }).then((dbExercises) => res.json(dbExercises));
+        }).then((dbExercise) => res.json(dbExercise));
     })
 
 //     // PUT route for updating gratitude entries 

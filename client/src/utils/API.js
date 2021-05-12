@@ -2,6 +2,11 @@ import axios from "axios";
 const site = "http://localhost:3001";
 
 export default {
+
+  getEntries: function() {
+    return axios.get(site + "/api/entries");
+  },
+
   // Gets all gratitude entries
   getGratitude: function() {
     return axios.get(site + "/api/entries/gratitude");

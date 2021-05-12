@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Row, Container } from "../components/Grid";
-import CreateGratitudeForm from "../components/CreateGratefulForm/index";
+import { Col, Row, Container } from "react-bootstrap";
+import CreateGratitudeForm from "../components/GratitudeForm/index";
+import SideMenu from "../components/SideMenu/index";
 
 class Gratitude extends Component {
 
@@ -17,7 +18,12 @@ class Gratitude extends Component {
             <div className="Gratitude">
             <Container fluid>
             <Row>
-                <CreateGratitudeForm  />
+                <Col size="md-3">
+                    <SideMenu  />
+                </Col>
+                <Col size="md-9">
+                    <CreateGratitudeForm  />
+                </Col>
             </Row>
             </Container>
             </div>
