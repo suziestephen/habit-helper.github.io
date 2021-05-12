@@ -1,15 +1,14 @@
 import React from "react";
-import { Row, Container } from "../components/Grid";
-import CreateGratitudeForm from "../components/CreateGratefulForm/index";
+// import { Col, Row, Container } from "../components/Grid";
+import SideMenu from "../components/SideMenu/index";
 
-const Home = () => {
+
+const Homepage = () => {
   return (
-    <Container fluid>
-      <Row>
-          <CreateGratitudeForm />
-      </Row>
-    </Container>
+
+          <SideMenu />
+
   );
 };
 
-export default Home;
+export default Homepage;
