@@ -6,11 +6,17 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // Matches with "/api/entries"
 
-
-router.route("/gratitude")
+    router.route("/gratitude")
     // CHECK GET route for getting the gratitude entries
     .get(isAuthenticated, (req, res) => {
         db.Gratitude.findAll({}).then((dbGratitude) => res.json(dbGratitude));
+    })
+    .post(isAuthenticated, (req, res) => {
+        console.log(req.body);
+        db.Gratitude.create({
+            gratefulFor: req.body.gratefulFor,
+            dayOf: req.body.dayOf,
+        }).then((dbGratitude) => res.json(dbGratitude));
     })
 
     // CHECK GET route for getting the reading entries
@@ -26,15 +32,6 @@ router.route("/gratitude")
     })
 
 
-//     // POST route for saving a new gratitude entry
-    router.route("/gratitude")
-    .post(isAuthenticated, (req, res) => {
-        console.log(req.body);
-        db.Gratitude.create({
-            gratefulFor: req.body.gratefulFor,
-            dayOf: req.body.dayOf,
-        }).then((dbGratitude) => res.json(dbGratitude));
-    })
 
     //     // POST route for saving a new reading entry
     router.route("/reading")
