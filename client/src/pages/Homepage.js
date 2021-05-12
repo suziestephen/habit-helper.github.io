@@ -1,15 +1,15 @@
 import React from "react";
-import API from "../utils/API";
+import { Row, Container } from "../components/Grid";
+import CreateGratitudeForm from "../components/CreateGratefulForm/index";
 
+const Home = () => {
+  return (
+    <Container fluid>
+      <Row>
+          <CreateGratitudeForm />
+      </Row>
+    </Container>
+  );
+};
 
-class Entry extends React.Component {
-
-    render(){
-        return (
-    <SideMenu />
-        )
-
-}
-}
-
-export default Entry;
+export default Home;
