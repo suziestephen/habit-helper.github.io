@@ -15,9 +15,8 @@ class DisplayHabits extends Component {
     }
   }
 
-
 render() {
-  const entries = 
+
   API.getEntries({
     entries: this.state.entries,
   });
