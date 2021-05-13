@@ -1,54 +1,49 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const bcrypt = require("bcryptjs");
+
 const db = require("../models");
 
-//Signing up
+// Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
-    new LocalStrategy(
-          (email, password, done) => {
-              //Check to see if user exists 
-              db.user
-              .findOne({
-                where: {
-                  email: email
-                }
-              })
-              .then(dbUser => {
-                // If the email does not exist
-                if (!dbUser) {
-                  console.log("Incorrect Email");
-                  return done(null, false, {
-                    message: "Incorrect email."
-                  });
-                }
-                const hash = dbUser.password.toString();
-      
-                // If the email exists, validate 
-                bcrypt.compare(password, hash, (err, result) => {
-                  // If the input password is correct
-                  if (result === true) {
-                    return done(null, dbUser); //dbUser = stores user when successfully logged in
-                  }
-                  // If password is incorrect
-                  console.log("Incorrect password");
-                  return done(null, false, {
-                    message: "Incorrect password."
-                  });
-                });
-            });
+  new LocalStrategy(
+    // Our user will sign in using an email, rather than a "username"
+    {
+      usernameField: "email"
+    },
+    (email, password, done) => {
+      // When a user tries to sign in this code runs
+      db.User.findOne({
+        where: {
+          email: email
         }
-    )
+      }).then(dbUser => {
+        // If there's no user with the given email
+        if (!dbUser) {
+          return done(null, false, {
+            message: "Incorrect email."
+          });
+        }
+        // If there is a user with the given email, but the password the user gives us is incorrect
+        else if (!dbUser.validPassword(password)) {
+          return done(null, false, {
+            message: "Incorrect password."
+          });
+        }
+        // If none of the above, return the user
+        return done(null, dbUser);
+      });
+    }
+  )
 );
 
-//Use sequalize to serialize and deserialize user 
+
 passport.serializeUser((user, cb) => {
-    cb(null, user);
-  });
-  
-  passport.deserializeUser((obj, cb) => {
-    cb(null, obj);
-  });
-  
-  // Export passport 
-  module.exports = passport;
+  cb(null, user);
+});
+
+passport.deserializeUser((obj, cb) => {
+  cb(null, obj);
+});
+
+// Exporting our configured passport
+module.exports = passport;
