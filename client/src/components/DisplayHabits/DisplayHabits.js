@@ -7,24 +7,14 @@ import { Container, Row, Col } from "react-bootstrap";
 
 class DisplayHabits extends Component {
 
-constructor(props) {
-  super(props);
-  this.state = {
-    isDisplayed: true,
-  };
-}
+  constructor() {
+    super();
 
-state = {
-  entries: [],
-}
+    this.state = {
+      entries: [],
+    }
+  }
 
-toggleShowHide = e => {
-  e.preventDefault();
-  API.getEntries({
-    entries: this.state.entries,
-  });
-  this.setState(state => ({ isDisplayed: !state.isDisplayed }));
-};
 
 render() {
   const entries = 
@@ -33,17 +23,14 @@ render() {
   });
   return (
     <div>
-      {this.state.isDisplayed ? <DisplayLog entries={entries} /> : null}
-      <Button onClick={e => this.toggleShowHide(e)} />
+      {this.state ? <Entries entries={entries} /> : null}
     </div>
   );
 }
 }
 
-const Button = ({ onClick }) => (
-<button onClick={onClick} type="button"> Toggle to Show/Hide</button>
-)
-const DisplayLog = ({ entries }) => <h1>{entries}</h1>;
+
+const Entries = ({ entries }) => <h1>{entries}</h1>;
  
 export default DisplayHabits;
 
