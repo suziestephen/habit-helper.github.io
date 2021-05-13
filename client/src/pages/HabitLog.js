@@ -12,11 +12,7 @@ class HabitLog extends Component {
   };
 
   componentDidMount() {
-    this.entries();
-  }
-
-  entries = query => {
-    API.getEntries(query)
+    API.getEntries()
     .then(res => this.setState({ result: res.data }))
     .catch(err => console.error(err));
 };
