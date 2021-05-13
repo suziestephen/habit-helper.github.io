@@ -1,32 +1,44 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Form } from "react-bootstrap";
-import DisplayHabits from "../components/DisplayHabits/DisplayHabits";
+import { Card } from "react-bootstrap";
+// import DisplayHabits from "../components/DisplayHabits/DisplayHabits";
+import EntryDetail from "../components/EntryDetail"
 // import { Col, Row, Container } from "../components/Grid";
 
 class HabitLog extends Component {
-  
+
   state = {
-    getEntries: [],
-  }
+    result: {},
+  };
 
   componentDidMount() {
-    API.getEntries()
-      .then(getEntries => this.setState({ getEntries: getEntries}))
-      .catch(err => console.error(err));
+    this.entries();
   }
 
+  entries = query => {
+    API.getEntries(query)
+    .then(res => this.setState({ result: res.data }))
+    .catch(err => console.error(err));
+};
 
+
+
+  renderEntry() {
+      return <EntryDetail
+        gratefulfor={this.state.result.gratefulFor}
+        dayOf={this.state.result.dayOf}
+      />
+    }
 
   render() {
     return (
-      <div>
-          <h3>Your Entries</h3>
-        <DisplayHabits entries={this.state.getEntries} />
-      </div>
+      <Card>
+      {this.renderEntry()}
+    </Card>
+
       )
     }
   }
-
+  
 
 export default HabitLog;

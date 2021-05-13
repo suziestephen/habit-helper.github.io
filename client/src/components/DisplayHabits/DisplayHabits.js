@@ -16,6 +16,7 @@ class DisplayHabits extends Component {
       API.getEntries()
       .then(entries => this.setState({ entries: entries }))
       .catch(err => console.error(err));
+      console.log(entries)
   }
 
 
@@ -24,11 +25,12 @@ class DisplayHabits extends Component {
             <div>
                 <div className="card-body">
                   <h1>{this.state.entries}</h1>
+                
                 </div>
             </div>
     )}
-
 }
+
 
 
 export default DisplayHabits;
