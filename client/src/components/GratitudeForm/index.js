@@ -33,9 +33,10 @@ class GratitudeForm extends Component {
         <h2>Write down some things you were grateful for today....</h2>
         <br />
         <Form className="entry-form">
-            <label>
+        <label>
               <input 
                 className="gratefulFor"
+                name="gratefulFor"
                 placeholder='Today I was grateful for...' 
                 value={this.state.gratefulFor} 
                 onChange={e => this.change(e)}
