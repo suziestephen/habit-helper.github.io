@@ -22,21 +22,27 @@ class HabitLog extends Component {
     )
 };
 
-  renderEntry() {
+  renderEntry(entry) {
       return <EntryDetail
-        gratefulfor={this.state.result.gratefulFor}
-        dayOf={this.state.result.dayOf}
+        gratefulFor={entry.gratefulFor}
+        dayOf={entry.dayOf}
       />
     }
 
   render() {
+
     return (
-      <Card>
-      {this.renderEntry()}
-    </Card>
-      )
-    }
+      <div>
+      {this.state.result.map(entry =>  
+        <Card key={entry.id}>
+          
+          {this.renderEntry(entry)}
+        </Card>
+       )
+      }
+       </div>
+    )
   }
-  
+}
 
 export default HabitLog;
