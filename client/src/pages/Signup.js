@@ -5,7 +5,7 @@ import API from "../utils/API";
 
 
 //saved entries - register and save to database 
-class Signup extends React.Component {
+class Signup extends Component {
     render(){
         return (
         

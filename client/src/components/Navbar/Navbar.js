@@ -7,12 +7,12 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg text-light">
             <div className="container">
-                <Link className="navbar-brand" to="/">Habit Helper</Link>
+                <Link className="navbar-brand" to="/homepage">Habit Helper</Link>
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <Link
-                            to="/"
-                            className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                            to="/homepage"
+                            className={window.location.pathname === "/Homepage" ? "nav-link active" : "nav-link"}
                         > Entry</Link>
                     </li>
                     <li className="nav-item">

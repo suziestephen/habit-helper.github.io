@@ -1,7 +1,14 @@
-.jumbotron h1 {
-    color: #120f72;
+
+
+.signup-container{
+    background: #f2f0f3;
+    padding: 40px;
+    width: 600px;
+    height: 600px;
 }
 
-.jumbotron h3 {
-    color: #ca0000;
+.signup-form{
+    display: block;
+    margin: 0 auto; 
 }
+
