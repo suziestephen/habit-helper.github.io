@@ -1,4 +1,6 @@
 const express = require("express");
+const session = require("express-session");
+const passport = require("./config/passport");
 const path = require("path");
 const cors = require("cors")
 
@@ -17,6 +19,17 @@ app.use(express.static('public'));
 //   app.use(express.static("client/build"));
 // }
 
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+// Initialize middleware, intialize passport
+app.use(passport.initialize());
+// Initialize middleware to alter the request object and deserialize "user" session ID from the request into a proper user object
+app.use(passport.session());
+
+
+
+//Cors
 app.use(cors())
  
 
