@@ -8,43 +8,44 @@ import { Container, Row, Col } from "react-bootstrap";
 class DisplayHabits extends Component {
 
     state = {
-      value: "",
-      entries: []
+      getEntries: []
     }
   
 
     componentDidMount() {
-      this.getEntries();
-      // API.getEntries()
-      //     .then(getEntries => this.setState({ getEntries: getEntries }))
-      //     .catch(err => console.error(err));
+      // this.getEntries();
+      API.getEntries()
+          .then(getEntries => this.setState({ getEntries: getEntries }))
+          .catch(err => console.error(err));
   }
 
-      displayEntry = entryData => {
-      return {
-        _id: entryData.id,
-        gratefulFor: entryData.gratefulFor,
-        exercise: entryData.exercise,
-        located: entryData.located,
-        book: entryData.book,
-        pages: entryData.pages,
-        dayOf: entryData.dayOf,
-      }
-    }
+    //   displayEntry = entryData => {
+    //   return {
+    //     _id: entryData.id,
+    //     gratefulFor: entryData.gratefulFor,
+    //     exercise: entryData.exercise,
+    //     located: entryData.located,
+    //     book: entryData.book,
+    //     pages: entryData.pages,
+    //     dayOf: entryData.dayOf,
+    //   }
+    // }
 
-    getEntries = query => {
-    API.getEntries(query)
-        .then(res => this.setState ({ entries: res.data.items.map(entryData => this.displayEntry(entryData)) }))
-        .catch(err => console.error(err));
-    };
+    // getEntries = query => {
+    // API.getEntries(query)
+    //     .then(res => this.setState ({ entries: res.data.items.map(entryData => this.displayEntry(entryData)) }))
+    //     .catch(err => console.error(err));
+    // };
 
   render() {
     return (
         <div>
-
-                <h5 className="card-title">
-
-                </h5>
+                <div className="card-body">
+                  <h5>Testing</h5>
+                  {this.props.getEntries}
+                  
+                </div>
+  
             </div>
 
     )}
