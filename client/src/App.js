@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer";
 import LoginForm from "./components/Login/LoginForm"
 import Homepage from "./pages/Homepage";
 import HabitLog from "./pages/HabitLog";
+// import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Gratitude from "./pages/Gratitude";
 import Exercise from "./pages/Exercise";
 import Reading from "./pages/Reading";
@@ -83,22 +85,37 @@ const AuthButton = withRouter(({ history }) => (
   <p>You are not logged in</p>
 ))
 
+
 class App extends Component {
+
+  state={isAuthenticated : false}
+
+  updateAuth=() => {
+  this.setState({isAuthenticated : true})
+  }
+
   render () {
   return (
     <Router>
         <AuthButton />
             <ul>
             <li><Link to='/login'>Login Page</Link></li>
+            <li><Link to='/signup'>SignUp Page</Link></li>
             </ul>
 
           <NavBar />
           <Header />
           <div>
+ 
           <Route path='/' component={Login} />
-          {/* <Route path='/login' component={Login} /> */}
-          
-          <PrivateRoute path='/homepage' component={Homepage} />
+          <Route path='/Signup' 
+              render={(props) => (
+                  <Signup {...props} updateAuth={true} />
+              )}
+          />
+
+
+          <PrivateRoute path='/Homepage' component={Homepage} />
           <PrivateRoute path='/HabitLog' component={HabitLog} />
           <Switch>
               <Route exact path="/Gratitude" component={Gratitude} />

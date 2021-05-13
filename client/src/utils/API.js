@@ -63,11 +63,11 @@ export default {
     },
 
     saveSignup: function(signupData) {
-    return axios.post(site + "/api/signup", signupData);
+    return axios.post(site + "/api/user/signup", signupData);
      },
 
     getUser: function() {
-    return axios.get(site + "/api/users")
+    return axios.get(site + "/api/user/signup")
     }
 
 };

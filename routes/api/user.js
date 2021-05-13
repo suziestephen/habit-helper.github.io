@@ -1,10 +1,12 @@
 // Requiring our models and passport as we've configured it
+const router = require("express").Router();
 const db = require("../..//models");
 const passport = require("../..//config/passport");
 
-module.exports = function(app) {
 
-  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+
+router.route("/login")
+  .post(passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
@@ -13,27 +15,31 @@ module.exports = function(app) {
   });
 
   // Route for signing up a user.
-  app.post("/api/signup", (req, res) => {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    })
+  router.route("/signup")
+    .post((req, res) => {
+    db.User.create(
+    req.body
+    )
       .then(() => {
-        res.redirect(307, "/api/login");
+        res.json(true);
       })
       .catch(err => {
         res.status(401).json(err);
       });
   });
 
+
+
   // Route for logging user out
-  app.get("/logout", (req, res) => {
+  router.route("/logout")
+  .get((req, res) => {
     req.logout();
     res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
+  router.route("/user_data") 
+  .get((req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -45,17 +51,11 @@ module.exports = function(app) {
       });
     }
   });
-};
 
 
+module.exports = router;
 
-// saveSignup: function(signupData) {
-//     return axios.post(site + "/api/signup", signupData);
-//   },
 
-//   getUser: function() {
-//     return axios.get(site + "/api/users")
-//   }
 
 
 
@@ -119,4 +119,3 @@ module.exports = function(app) {
 //     //Signout
 
 
-// module.exports = router;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
 import { Form, Button } from "react-bootstrap";
-import "./reading.css"
+import "./signupform.css"
 
 
 
@@ -23,8 +23,15 @@ class SignupForm extends Component {
     API.saveSignup({
       email: this.state.email,
       password: this.state.password,
-    });
+    })
+    .then( () => {
+      // props.updateAuth()
+      window.location.href="/Homepage"
+    })
   };
+
+
+
 
   render() {
     return (

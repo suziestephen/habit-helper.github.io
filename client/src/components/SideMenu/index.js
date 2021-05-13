@@ -10,7 +10,7 @@ class SideMenu extends Component {
     return (
       <div className="menu-div">
       <Container className="menu-container">
-        <h2>My Habits</h2>
+        <h2>Select a habit and create an entry for today</h2>
         <br />
           <Row>
             <Button className="menu-button">
