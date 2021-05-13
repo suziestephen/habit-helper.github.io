@@ -57,6 +57,14 @@ export default {
     // Saves a reading entries to the database
     saveReading: function(readingData) {
       return axios.post(site + "/api/entries/reading", readingData);
+    },
+
+    saveSignup: function(signupData) {
+      return axios.post(site + "/api/signup", signupData);
+    },
+
+    getUser: function() {
+      return axios.get(site + "/api/users")
     }
 
 
