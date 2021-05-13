@@ -7,11 +7,11 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
 import { Form, Button } from "react-bootstrap";
-// import "./reading.css"
+import "./loginform.css"
 
 
-
-class LoginForm extends Component {
+  
+  class LoginForm extends Component {
 
   state = {
       email: "",
@@ -34,10 +34,10 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className="signup-container">
+      <div className="login-container">
         <h2>Login to view the site</h2>
       <br />
-        <Form className="signup-form">
+        <Form className="login-form">
           <label>
               <input 
                 name="email"
