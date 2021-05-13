@@ -1,0 +1,28 @@
+h2 {
+    size: 20px;
+    color: #352e34;
+    text-align: center;
+}
+
+
+.menu-container {
+  background: #f5b9f0; 
+  padding: 40px;
+  width: 300px;
+}
+
+.menu-button {
+    background-color: #fdf3fd;
+    display: block;
+    margin: 0 auto; 
+}
+
+a {
+    color: #c40c0c; 
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(31, 180, 31)
+}
+

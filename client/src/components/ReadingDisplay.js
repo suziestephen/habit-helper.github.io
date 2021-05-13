@@ -1,12 +1,13 @@
 import React from "react";
 
-function GratitudeDisplay(props) {
+function ReadingDisplay(props) {
   return (
     <div className="text-center">
-      <h3>Grateful For: {props.gratefulFor}</h3>
-      <h3>Date: {props.dayOf}</h3>
+      <h3>Book: {props.book}</h3>
+      <h4>Pages: {props.pages}</h4>
+      <h5>Date: {props.dayOf}</h5>
     </div>
   );
 }
 
-export default GratitudeDisplay;
+export default ReadingDisplay;

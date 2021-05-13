@@ -12,11 +12,7 @@ export default {
     return axios.get(site + "/api/entries/gratitude");
   },
 
-  // // Gets the gratitude entries with the given id
-  // getGratitude: function(id) {
-  //   return axios.get(site + "/api/entries/gratitude/"+ id);
-  // },
-  // Deletes the gratitude entries with the given id
+
   deleteGratitude: function(id) {
     return axios.delete(site + "/api/entries/gratitude" + id);
   },
@@ -30,13 +26,13 @@ export default {
   getExercise: function() {
     return axios.get(site + "/api/entries/exercise");
   },
-  // Gets the exercise entries with the given id
-  getExercise: function(id) {
-    return axios.get(site + "/api/entries/exercise"+ id);
-  },
+  // // Gets the exercise entries with the given id
+  // getExercise: function(id) {
+  //   return axios.get(site + "/api/entries/exercise/"+ id);
+  // },
   // Deletes the exercise entries with the given id
   deleteExercise: function(id) {
-    return axios.delete(site + "/api/entries/exercise" + id);
+    return axios.delete(site + "/api/entries/exercise/" + id);
   },
   // Saves a exercise entries to the database
   saveExercise: function(exerciseData) {
@@ -47,18 +43,31 @@ export default {
     getReading: function() {
       return axios.get(site + "/api/entries/reading");
     },
-    // Gets the reading entries with the given id
-    getReading: function(id) {
-      return axios.get(site + "/api/entries/reading"+ id);
+    // // Gets the reading entries with the given id
+    // getReading: function(id) {
+    //   return axios.get(site + "/api/entries/reading/"+ id);
+    // },
+
+     // Gets the reading entries with the given id
+     updateReading: function(id) {
+      return axios.put(site + "/api/entries/reading/"+ id);
     },
+
     // Deletes the reading entries with the given id
     deleteReading: function(id) {
-      return axios.delete(site + "/api/entries/reading" + id);
+      return axios.delete(site + "/api/entries/reading/" + id);
     },
     // Saves a reading entries to the database
     saveReading: function(readingData) {
       return axios.post(site + "/api/entries/reading", readingData);
     },
 
+    saveSignup: function(signupData) {
+    return axios.post(site + "/api/signup", signupData);
+     },
+
+    getUser: function() {
+    return axios.get(site + "/api/users")
+    }
 
 };

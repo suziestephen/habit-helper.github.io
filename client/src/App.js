@@ -6,10 +6,13 @@ import Wrapper from "./components/Wrapper/Wrapper.js";
 import Footer from "./components/Footer/Footer";
 import LoginForm from "./components/Login/LoginForm"
 import Homepage from "./pages/Homepage";
+import HabitLog from "./pages/HabitLog";
 import Gratitude from "./pages/Gratitude";
 import Exercise from "./pages/Exercise";
 import Reading from "./pages/Reading";
-import HabitLog from "./pages/HabitLog";
+import GratitudeLog from "./pages/GratitudeLog";
+import ExerciseLog from "./pages/ExerciseLog";
+import ReadingLog from "./pages/ReadingLog";
 
 const fakeAuth = {
   isAuthenticated: false,
@@ -101,6 +104,9 @@ class App extends Component {
               <Route exact path="/Gratitude" component={Gratitude} />
               <Route exact path="/Exercise" component={Exercise} />
               <Route exact path="/Reading" component={Reading} />
+              <Route exact path="/GratitudeLog" component={GratitudeLog} />
+              <Route exact path="/ExerciseLog" component={ExerciseLog} />
+              <Route exact path="/ReadingLog" component={ReadingLog} />
             </Switch> 
           <Footer />
           </div>
