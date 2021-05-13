@@ -8,16 +8,38 @@ import { Container, Row, Col } from "react-bootstrap";
 class DisplayHabits extends Component {
 
     state = {
-      getEntries: []
+      entries: []
     }
   
 
     componentDidMount() {
-      // this.getEntries();
       API.getEntries()
-          .then(getEntries => this.setState({ getEntries: getEntries }))
-          .catch(err => console.error(err));
+      .then(entries => this.setState({ entries: entries }))
+      .catch(err => console.error(err));
   }
+
+
+  render() {
+    return (
+            <div>
+                <div className="card-body">
+                  <h1>{this.state.entries}</h1>
+                </div>
+            </div>
+    )}
+
+}
+
+
+export default DisplayHabits;
+
+
+
+
+              
+
+    //   this.entries();
+
 
     //   displayEntry = entryData => {
     //   return {
@@ -31,34 +53,12 @@ class DisplayHabits extends Component {
     //   }
     // }
 
-    // getEntries = query => {
+    // entries = query => {
     // API.getEntries(query)
     //     .then(res => this.setState ({ entries: res.data.items.map(entryData => this.displayEntry(entryData)) }))
     //     .catch(err => console.error(err));
     // };
-
-  render() {
-    return (
-        <div>
-                <div className="card-body">
-                  <h5>Testing</h5>
-                  {this.props.getEntries}
-                  
-                </div>
-  
-            </div>
-
-    )}
-
-}
-export default DisplayHabits;
-
-
-
-
-              
-
-
+    // }
 
 
 
