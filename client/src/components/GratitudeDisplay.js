@@ -1,6 +1,6 @@
 import React from "react";
 
-function EntryDetail(props) {
+function GratitudeDisplay(props) {
   return (
     <div className="text-center">
       <h3>Grateful For: {props.gratefulFor}</h3>
@@ -9,4 +9,4 @@ function EntryDetail(props) {
   );
 }
 
-export default EntryDetail;
+export default GratitudeDisplay;
