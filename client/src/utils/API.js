@@ -4,17 +4,18 @@ const site = "http://localhost:3001";
 export default {
 
   getEntries: function() {
-    return axios.get(site + "/api/entries");
+    return axios.get("http://localhost:3001/api/entries");
   },
 
-  // Gets all gratitude entries
+  // // Gets all gratitude entries
   getGratitude: function() {
     return axios.get(site + "/api/entries/gratitude");
   },
-  // Gets the gratitude entries with the given id
-  getGratitude: function(id) {
-    return axios.get(site + "/api/entries/gratitude"+ id);
-  },
+
+  // // Gets the gratitude entries with the given id
+  // getGratitude: function(id) {
+  //   return axios.get(site + "/api/entries/gratitude/"+ id);
+  // },
   // Deletes the gratitude entries with the given id
   deleteGratitude: function(id) {
     return axios.delete(site + "/api/entries/gratitude" + id);
@@ -58,14 +59,6 @@ export default {
     saveReading: function(readingData) {
       return axios.post(site + "/api/entries/reading", readingData);
     },
-
-    saveSignup: function(signupData) {
-      return axios.post(site + "/api/signup", signupData);
-    },
-
-    getUser: function() {
-      return axios.get(site + "/api/users")
-    }
 
 
 };
