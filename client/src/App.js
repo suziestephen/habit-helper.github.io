@@ -23,8 +23,6 @@ const fakeAuth = {
   }
 }
 
-const Public = () => <h3>Public</h3>
-const Protected = () => <h3>Homepage</h3>  // this components will only show if logged in
 
 class Login extends Component {
   state = {
@@ -50,7 +48,6 @@ class Login extends Component {
 
     return (
       <div> 
-        <p>You must log in to view this page</p>
         <LoginForm />
         <button onClick={this.login}>Log In</button>
       </div>
@@ -87,34 +84,26 @@ class App extends Component {
   render () {
   return (
     <Router>
+        <AuthButton />
+            <ul>
+            <li><Link to='/login'>Login Page</Link></li>
+            </ul>
 
           <NavBar />
           <Header />
           <div>
-          <AuthButton />
-            <ul>
-            <li><Link to='/login'>Login Page</Link></li>
-            <li><Link to='/homepage'>Homepage</Link></li>
-            </ul>
-
-          
-
           <Route path='/' component={Login} />
           {/* <Route path='/login' component={Login} /> */}
           
           <PrivateRoute path='/homepage' component={Homepage} />
+          <PrivateRoute path='/HabitLog' component={HabitLog} />
           <Switch>
-              <Route exact path="/homepage" component={Homepage} />
               <Route exact path="/Gratitude" component={Gratitude} />
               <Route exact path="/Exercise" component={Exercise} />
               <Route exact path="/Reading" component={Reading} />
-              <Route exact path="/HabitLog" component={HabitLog} />
             </Switch> 
-     
           <Footer />
-
           </div>
-
           </Router>
   )}
 }      
