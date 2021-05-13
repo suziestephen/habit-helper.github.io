@@ -21,9 +21,10 @@ render() {
   API.getEntries({
     entries: this.state.entries,
   });
+  
   return (
     <div>
-      {this.state ? <Entries entries={entries} /> : null}
+      <Entries entries={this.state.entries} />
     </div>
   );
 }
