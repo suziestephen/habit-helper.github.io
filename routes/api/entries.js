@@ -6,20 +6,24 @@ const db = require("../..//models");
 
 // Matches with "/api/entries"
 
-    router.route("/")
+    router.route("/entries")
     Promise.all([db.Gratitude.findAll({}), db.Exercise.findAll({}), db.Reading.findAll({})])
         .then((data) => {
             res.json(data)
         })
 
-    router.route("/")
+    router.route("/gratitude")
     .get((req, res) => {
         db.Gratitude.findAll({}).
         then((dbGratitude) => res.json(dbGratitude));
     })
+
+    router.route("/reading")
     .get((req, res) => {
         db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
     })
+    
+    router.route("/exercise")
     .get((req, res) => {
         db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
     })

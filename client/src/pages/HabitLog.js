@@ -8,20 +8,19 @@ import EntryDetail from "../components/EntryDetail"
 class HabitLog extends Component {
 
   state = {
-    result: {},
+    result: [],
   };
 
+
   componentDidMount() {
-    API.getEntries() 
+    API.getGratitude() 
     .then (res => {
-      console.log(res)
+      console.log(res.data)
       this.setState ({ result: res.data })
     })
     .catch(err => console.error(err)
     )
 };
-
-
 
   renderEntry() {
       return <EntryDetail
@@ -35,7 +34,6 @@ class HabitLog extends Component {
       <Card>
       {this.renderEntry()}
     </Card>
-
       )
     }
   }

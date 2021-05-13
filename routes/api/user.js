@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-const db = require("../models");
-const passport = require("../config/passport");
+const db = require("../..//models");
+const passport = require("../..//config/passport");
 
 module.exports = function(app) {
 
@@ -46,6 +46,16 @@ module.exports = function(app) {
     }
   });
 };
+
+
+
+// saveSignup: function(signupData) {
+//     return axios.post(site + "/api/signup", signupData);
+//   },
+
+//   getUser: function() {
+//     return axios.get(site + "/api/users")
+//   }
 
 
 
