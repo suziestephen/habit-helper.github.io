@@ -7,15 +7,24 @@ const db = require("../..//models");
 // Matches with "/api/entries"
 
     router.route("/")
+    Promise.all([db.Gratitude.findAll({}), db.Exercise.findAll({}), db.Reading.findAll({})])
+        .then((data) => {
+            res.json(data)
+        })
+
+    router.route("/")
     .get((req, res) => {
-        db.HabitHelper.findAll({}).then((dbHabitHelper) => res.json(dbHabitHelper));
+        db.Gratitude.findAll({}).
+        then((dbGratitude) => res.json(dbGratitude));
+    })
+    .get((req, res) => {
+        db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
+    })
+    .get((req, res) => {
+        db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
     })
 
     router.route("/gratitude")
-    // CHECK GET route for getting the gratitude entries
-    .get((req, res) => {
-        db.Gratitude.findAll({}).then((dbGratitude) => res.json(dbGratitude));
-    })
     .post((req, res) => {
         console.log(req.body);
         db.Gratitude.create({

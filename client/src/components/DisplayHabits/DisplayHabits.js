@@ -7,35 +7,55 @@ import { Container, Row, Col } from "react-bootstrap";
 
 class DisplayHabits extends Component {
 
-  constructor() {
-    super();
-
-    this.state = {
-      entries: [],
+    state = {
+      value: "",
+      entries: []
     }
+  
+
+    componentDidMount() {
+      this.getEntries();
+      // API.getEntries()
+      //     .then(getEntries => this.setState({ getEntries: getEntries }))
+      //     .catch(err => console.error(err));
   }
 
-render() {
+      displayEntry = entryData => {
+      return {
+        _id: entryData.id,
+        gratefulFor: entryData.gratefulFor,
+        exercise: entryData.exercise,
+        located: entryData.located,
+        book: entryData.book,
+        pages: entryData.pages,
+        dayOf: entryData.dayOf,
+      }
+    }
 
-  API.getEntries({
-    entries: this.state.entries,
-  });
-  
-  return (
-    <div>
-      <Entries entries={this.state.entries} />
-    </div>
-  );
+    getEntries = query => {
+    API.getEntries(query)
+        .then(res => this.setState ({ entries: res.data.items.map(entryData => this.displayEntry(entryData)) }))
+        .catch(err => console.error(err));
+    };
+
+  render() {
+    return (
+        <div>
+
+                <h5 className="card-title">
+
+                </h5>
+            </div>
+
+    )}
+
 }
-}
-
-
-const Entries = ({ entries }) => <h1>{entries}</h1>;
- 
 export default DisplayHabits;
 
 
 
+
+              
 
 
 
@@ -101,4 +121,3 @@ export default DisplayHabits;
 //       } 
 //       </div>
 //   ); 
-
