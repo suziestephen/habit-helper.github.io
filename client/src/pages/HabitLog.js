@@ -12,9 +12,13 @@ class HabitLog extends Component {
   };
 
   componentDidMount() {
-    API.getEntries()
-    .then(res => this.setState({ result: res.data }))
-    .catch(err => console.error(err));
+    API.getEntries() 
+    .then (res => {
+      console.log(res)
+      this.setState ({ result: res.data })
+    })
+    .catch(err => console.error(err)
+    )
 };
 
 
