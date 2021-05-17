@@ -30,10 +30,10 @@ class ExerciseForm extends Component {
 
   render() {
     return (
-      <div className="entry-container">
+      <div className="display-container">
         <h2>Write down your exercise for the day</h2>
       <br />
-        <Form className="entry-form">
+        <Form className="form">
             <input 
               name="exercise"
               placeholder='What was your sweat sesh today?' 
