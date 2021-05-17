@@ -64,17 +64,15 @@ export default {
     return axios.post(site + "/api/user/signup", signupData);
      },
 
-    login: function(email, password) {
-    return axios.post(site + "/api/user/login", { username: email, password });
+    login: function(userData) {
+    return axios.post(site + "/api/user/login", userData);
     },
 
     getUser: function() {
       return axios.get("/api/user/login");
     },
 
-    getUserId: function() {
-      return axios.get("/api/user/user-id");
-    },
+  
 
     logout: function() {
       console.log('logout');
