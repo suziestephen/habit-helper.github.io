@@ -1,12 +1,46 @@
 // Requiring our models and passport as we've configured it
 const router = require("express").Router();
 const db = require("../..//models");
-const passport = require("../..//config/passport");
+const passport = require("../..//config/passport");  //("passport")
 
+
+
+
+router.route('/login')
+  .get((req, res) => {
+    
+    console.log("\nRequest Session")
+    console.log(req.session)
+    if (req.isAuthenticated()) {
+        var currentUser = req.session.passport.user;
+        console.log("\nCurrent User")
+        console.log(currentUser)
+        db.User.findOne({
+            where: {
+                id: currentUser 
+            }
+        }).then(dbUser => {
+            console.log("User")
+            console.log(dbUser)
+            let user = {
+                loggedIn: true,
+                user: currentUser,
+            };
+            res.json(user);
+        })
+
+    } else {
+        let noUser = {
+            loggedIn: false,
+            user: ''
+        };
+        res.json(noUser);
+    }
+})
 
 
 router.route("/login")
-  .post(passport.authenticate("local"), (req, res) => {
+  .post(passport.authenticate("local-login"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
