@@ -1,0 +1,142 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Economica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+
+.main-div {
+    background-color: #fffaf5;
+    font-family: Economica
+}
+
+.button-2 {
+    background-color: #396043;
+    font-family: Source Sans Pro;
+}
+ 
+/* .h1 {
+    font-family: Economica;
+    color: #a3a2d1;
+}
+
+.h3 {
+    font-family: Economica;
+    color: #ca0000;
+} */
+
+/* Login header */
+
+.login-header {
+    background-color: #396043;
+    font-family: Economica;
+    text-decoration: none;
+    color: #cca677
+
+}
+
+/* Nav Bar */
+
+nav {
+    background-color: #396043
+}
+
+a {
+    font-family: Economica;
+    text-decoration: none;
+    color: #cca677
+}
+
+ a:hover {
+    text-decoration: underline;
+    color: #E1C099  
+}
+
+.navbar-brand {
+    font-size: 35px;
+}
+
+.nav-item {
+    font-size: 25px;
+}
+
+/* Header */
+.header h1 {
+    font-family: Economica;
+    color: #396043
+}
+
+.header h3 {
+    font-family: Parisienne;
+    color: #cca677
+}
+
+.header-container {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Habit display */
+
+.display-container{
+    background-color: #fffaf5;
+    text-align: center;
+    position: relative
+}
+
+.exercise-display {
+    background-color: #fffaf5;
+    text-align: center;
+    position: relative
+}
+
+.gratitude-display {
+    background-color: #fffaf5;
+    text-align: center;
+    position: relative
+}
+
+.reading-display {
+    background-color: #fffaf5;
+    text-align: center;
+    position: relative
+}
+
+.card {
+    background-color: #fffaf5;
+    text-align: center;
+    position: relative;
+    border-color: #396043;
+    padding: 20px;
+    margin: 20px
+}
+
+.title{
+    font-family: Economica;
+    color: #396043;
+    font-size: 35px
+}
+
+.sub-title {
+    font-family: Source Sans Pro;
+    color: #000000;
+    font-size: 25px
+}
+
+.date {
+    font-family: Source Sans Pro;
+    color: #000000;
+    font-size: 20px;
+}
+
+
+/* Footer */
+.footer p {
+    size: 20px;
+    color: #396043
+}
+
+
+.footer-container {
+  text-align: center;
+  float: center;
+  padding: 50px
+}

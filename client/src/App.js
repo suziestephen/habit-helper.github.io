@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import LoginForm from "./components/Login/LoginForm"
 import Homepage from "./pages/Homepage";
 import HabitLog from "./pages/HabitLog";
+import "./app.css"
 // import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Gratitude from "./pages/Gratitude";
@@ -99,37 +100,34 @@ class App extends Component {
   render () {
   return (
     <Router>
-        <AuthButton />
-            <ul>
-            <li><Link to='/login'>Login Page</Link></li>
-            <li><Link to='/signup'>SignUp Page</Link></li>
-            </ul>
-
-          <NavBar />
-          <Header />
-          <div>
- 
-          <Route path='/' component={Login} />
-          <Route path='/Signup' 
-              render={(props) => (
-                  <Signup {...props} updateAuth={true} />
-              )}
-          />
-
-
-          <PrivateRoute path='/Homepage' component={Homepage} />
-          <PrivateRoute path='/HabitLog' component={HabitLog} />
-          <Switch>
-              <Route exact path="/Gratitude" component={Gratitude} />
-              <Route exact path="/Exercise" component={Exercise} />
-              <Route exact path="/Reading" component={Reading} />
-              <Route exact path="/GratitudeLog" component={GratitudeLog} />
-              <Route exact path="/ExerciseLog" component={ExerciseLog} />
-              <Route exact path="/ReadingLog" component={ReadingLog} />
-            </Switch> 
-          <Footer />
+        <div className ="main-div">
+          <div className ="navbar">
+             <AuthButton />
+              <li><Link to='/login'>Login Page</Link></li>
+              <li><Link to='/signup'>SignUp Page</Link></li>
           </div>
-          </Router>
+
+            <NavBar />
+            <Header />
+            <Route path='/' component={Login} />
+            <Route path='/Signup' 
+                render={(props) => (
+                    <Signup {...props} updateAuth={true} />
+                )}
+            />
+            <PrivateRoute path='/Homepage' component={Homepage} />
+            <PrivateRoute path='/HabitLog' component={HabitLog} />
+            <Switch>
+                <Route exact path="/Gratitude" component={Gratitude} />
+                <Route exact path="/Exercise" component={Exercise} />
+                <Route exact path="/Reading" component={Reading} />
+                <Route exact path="/GratitudeLog" component={GratitudeLog} />
+                <Route exact path="/ExerciseLog" component={ExerciseLog} />
+                <Route exact path="/ReadingLog" component={ReadingLog} />
+              </Switch> 
+            <Footer />
+        </div>
+    </Router>
   )}
 }      
 
@@ -139,11 +137,3 @@ class App extends Component {
 export default App;
 
 
-
-
-{/* 
-          
- 
-      </Wrapper>
-    </Router>
-  ); */} 

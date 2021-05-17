@@ -1,12 +1,22 @@
 import React from "react";
 
 function ExerciseDisplay(props) {
-  return (
-    <div className="text-center">
-      <h3>Exercise: {props.exercise}</h3>
-      <h3>Located: {props.located}</h3>
-      <h3>Date: {props.dayOf}</h3>
+  return ( 
+  <div>
+    <div className="display-container">
+        <div className="title">
+          Exercise: {props.exercise}
+        </div>
+
+        <div className="sub-title">
+          Located: {props.located}
+        </div>
+
+        <div className="date">
+          Date: {props.dayOf}
+        </div>
     </div>
+  </div>
   );
 }
 

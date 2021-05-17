@@ -35,10 +35,10 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div className="signup-container">
+      <div className="display-container">
         <h2>Signup to get started</h2>
       <br />
-        <Form className="signup-form">
+        <Form className="form">
           <label>
               <input 
                 name="email"
