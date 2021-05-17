@@ -1,13 +1,8 @@
-
-
-
-      
-      
-
 import React, { Component } from "react";
 import API from '../../utils/API';
 import { Form, Button } from "react-bootstrap";
 import "./loginform.css"
+import { Redirect, Link, useHistory } from 'react-router-dom';
 
 //react proxy 
   
@@ -24,9 +19,24 @@ import "./loginform.css"
     });
   };
 
+        //  //auth.login
+        // onSubmit = (e) => {
+        //     e.preventDefault();
+        //     console.log('handleSubmit');
+        //     //this.props.login(this.state.email, this.state.password);
+        //     Auth.login({
+        //         email: this.state.email,
+        //         password: this.state.password
+        //     }).then(response => {
+        //         console.log(response);
+        //           this.props.history.push('/'); 
+        //     });
+        // }
+
+
   onSubmit = e => {
     e.preventDefault();
-    API.getUser({
+    API.getUser({ //auth.login ?? //this is the link to the user table to confirm
       email: this.state.email,
       password: this.state.password,
     });
@@ -34,10 +44,10 @@ import "./loginform.css"
 
   render() {
     return (
-      <div className="login-container">
+      <div className="display-container">
         <h2>Login to view the site</h2>
       <br />
-        <Form className="login-form">
+        <Form className="form">
           <label>
               <input 
                 name="email"
@@ -55,6 +65,12 @@ import "./loginform.css"
                 onChange={e => this.change(e)}
               />
             </label>
+
+            <br></br>
+            <Button className="button-1" onClick={this.onSubmit}>Login</Button>
+            <Button className="button-2"> 
+              <Link to="/signup" float="middle">Not a user? Signup here first</Link> 
+            </Button>
         </Form>
       </div>
       );
@@ -63,9 +79,6 @@ import "./loginform.css"
   }
 
 export default LoginForm;
-
-
-
 
 
 

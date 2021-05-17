@@ -1,17 +1,19 @@
 import axios from "axios";
 const site = "http://localhost:3001";
 
+const axiosInstance = axios.create({
+  baseURL: window.location.host.includes('localhost') ? 'http://localhost:3001' : '',
+  withCredentials: true
+})
+
+
 export default {
 
-  getEntries: function() {
-    return axios.get("http://localhost:3001/api/entries");
-  },
 
   // // Gets all gratitude entries
   getGratitude: function() {
     return axios.get(site + "/api/entries/gratitude");
   },
-
 
   deleteGratitude: function(id) {
     return axios.delete(site + "/api/entries/gratitude" + id);
@@ -26,11 +28,7 @@ export default {
   getExercise: function() {
     return axios.get(site + "/api/entries/exercise");
   },
-  // // Gets the exercise entries with the given id
-  // getExercise: function(id) {
-  //   return axios.get(site + "/api/entries/exercise/"+ id);
-  // },
-  // Deletes the exercise entries with the given id
+
   deleteExercise: function(id) {
     return axios.delete(site + "/api/entries/exercise/" + id);
   },
@@ -43,10 +41,7 @@ export default {
     getReading: function() {
       return axios.get(site + "/api/entries/reading");
     },
-    // // Gets the reading entries with the given id
-    // getReading: function(id) {
-    //   return axios.get(site + "/api/entries/reading/"+ id);
-    // },
+
 
      // Gets the reading entries with the given id
      updateReading: function(id) {
@@ -62,12 +57,39 @@ export default {
       return axios.post(site + "/api/entries/reading", readingData);
     },
 
+
+
+    //LOGIN AND SIGNUP
     saveSignup: function(signupData) {
     return axios.post(site + "/api/user/signup", signupData);
      },
 
+    login: function(email, password) {
+    return axios.post(site + "/api/user/login", { username: email, password });
+    },
+
     getUser: function() {
-    return axios.get(site + "/api/user/signup")
-    }
+      return axios.get("/api/user/login");
+    },
+
+    getUserId: function() {
+      return axios.get("/api/user/user-id");
+    },
+
+    logout: function() {
+      console.log('logout');
+      return axios.post('/api/user/logout');
+  },
+
+    // Check if user is logged in
+    userLoggedIn: function() {
+      return axiosInstance({
+        method: 'get',
+        url: "/api/user/logged-in",
+      })
+    },
+
+
+    
 
 };
