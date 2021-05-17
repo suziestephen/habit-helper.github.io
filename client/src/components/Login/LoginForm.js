@@ -34,8 +34,6 @@ import { Redirect, Link, useHistory } from 'react-router-dom';
         .then(response => {
           this.props.setIsAuthenticated(true)
           console.log("response: ", response);
-          // window.location.href="/Homepage"
-
       })
 
 
