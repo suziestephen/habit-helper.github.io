@@ -93,6 +93,8 @@ class App extends Component {
   updateAuth=() => {
   this.setState({isAuthenticated : true})
   }
+  
+  //App function
 
   render () {
   return (
