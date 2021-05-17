@@ -8,6 +8,9 @@ import { Redirect, Link, useHistory } from 'react-router-dom';
   
   class LoginForm extends Component {
 
+
+
+
   state = {
       email: "",
       password: "",
@@ -24,7 +27,7 @@ import { Redirect, Link, useHistory } from 'react-router-dom';
         //     e.preventDefault();
         //     console.log('handleSubmit');
         //     //this.props.login(this.state.email, this.state.password);
-        //     Auth.login({
+        //     API.login({
         //         email: this.state.email,
         //         password: this.state.password
         //     }).then(response => {
@@ -36,11 +39,34 @@ import { Redirect, Link, useHistory } from 'react-router-dom';
 
   onSubmit = e => {
     e.preventDefault();
-    API.getUser({ //auth.login ?? //this is the link to the user table to confirm
+    if (this.state.email && this.state.password) {
+    API.login({ //this link does not work
       email: this.state.email,
       password: this.state.password,
-    });
-  };
+    })
+//         .then(response => {
+//           console.log("response: ", response);
+//           console.log("RESPONSE.DATA.ID: ", response.data.data.id)
+//         if (response.data.data.id) {
+//           setUserId(response.data.data.id);
+//           history.push('/');
+//         } else {
+//           setHasErrorState(true);
+//         }
+//       })
+//       .catch(err => {
+//         setState({
+//           email: "",
+//           password: ""
+//         });
+//         setHasErrorState(true);
+//         console.log(err);
+//       }
+//       )
+// }
+
+  }
+}
 
   render() {
     return (
