@@ -12,7 +12,7 @@ class Login extends React.Component {
     return (
     
         <div>
-            <LoginForm />
+            <LoginForm setIsAuthenticated={this.props.setIsAuthenticated}/>
         </div>
         
         )

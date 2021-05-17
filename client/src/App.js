@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, Redirect, withRouter } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header.js";
@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer";
 import LoginForm from "./components/Login/LoginForm"
 import Homepage from "./pages/Homepage";
 import HabitLog from "./pages/HabitLog";
+import Login from "./pages/Login";
+
 import "./app.css"
 // import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -16,55 +18,15 @@ import Reading from "./pages/Reading";
 import GratitudeLog from "./pages/GratitudeLog";
 import ExerciseLog from "./pages/ExerciseLog";
 import ReadingLog from "./pages/ReadingLog";
-
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
+import { AuthContext } from "./utils/authContext";
+import API from "./utils/API";
 
 
-class Login extends Component {
-  state = {
-    redirectToRefferrer: false
-  }
 
-  login = () => {
-    fakeAuth.authenticate(() => {
-      this.setState(() => ({
-        redirectToRefferrer: true
-      }))
-    })
-  }
-  render() {
-    const { redirectToRefferrer } = this.state
-    const { from } = this.props.location.state || { from: { pathname : '/'} }
 
-    if (redirectToRefferrer === true) {
-      return (
-        <Redirect to={from} />
-      )
-    }
-
-    return (
-      <div> 
-        <LoginForm />
-        <button onClick={this.login}>Log In</button>
-      </div>
-    )
-
-  }
-}
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route {...rest} render={(props) => (
-    fakeAuth.isAuthenticated === true
+    isAuthenticated 
     ? <Component {...props} />
     : <Redirect to={{
       pathname: '/login',
@@ -73,50 +35,63 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   )} />
 )
 
-const AuthButton = withRouter(({ history }) => (
-  fakeAuth.isAuthenticated === true 
-  ? 
-  <p>
-    Welcome! <button onClick={() => {
-    fakeAuth.signout(() => history.push('/'))
-    }}> Sign Out 
-    </button>
-  </p>
-  : 
-  <p>You are not logged in</p>
-))
+// const AuthButton = withRouter(({ history }) => (
+//   fakeAuth.isAuthenticated === true 
+//   ? 
+//   <p>
+//     Welcome! <button onClick={() => {
+//     fakeAuth.signout(() => history.push('/'))
+//     }}> Sign Out 
+//     </button>
+//   </p>
+//   : 
+//   <p>You are not logged in</p>
+// ))
 
 
-class App extends Component {
 
-  state={isAuthenticated : false}
 
-  updateAuth=() => {
-  this.setState({isAuthenticated : true})
-  }
+function App () {
+
   
+  const [isAuthenticated, setIsAuthenticated ] = useState(false);
+  const value = { isAuthenticated, setIsAuthenticated };
+  
+  // We check if user is already logged in, and if they are then we set isAuthenticated to true
+  useEffect(() => {
+    API.userLoggedIn().then(response => {
+      console.log(response.data)
+      setIsAuthenticated(response.data.isAuthenticated)
+      // if (isAuthenticated){window.location.href="/Homepage"};
+    })
+  }, []);
+
   //App function
 
-  render () {
   return (
-    <Router>
+<AuthContext.Provider value={value}>
+  <Router>
         <div className ="main-div">
           <div className ="navbar">
-             <AuthButton />
+             {/* <AuthButton /> */}
               <li><Link to='/login'>Login Page</Link></li>
               <li><Link to='/signup'>SignUp Page</Link></li>
           </div>
 
             <NavBar />
             <Header />
-            <Route path='/' component={Login} />
+            <Route path='/Login' 
+            render={(props) => (
+                    <Login {...props} setIsAuthenticated={setIsAuthenticated} />
+                )}
+                />
             <Route path='/Signup' 
                 render={(props) => (
-                    <Signup {...props} updateAuth={true} />
+                    <Signup {...props} isAuthenticated={true} />
                 )}
             />
-            <PrivateRoute path='/Homepage' component={Homepage} />
-            <PrivateRoute path='/HabitLog' component={HabitLog} />
+            <PrivateRoute path='/Homepage' component={Homepage} isAuthenticated={isAuthenticated} />
+            <PrivateRoute path='/HabitLog' component={HabitLog} isAuthenticated={isAuthenticated} />
             <Switch>
                 <Route exact path="/Gratitude" component={Gratitude} />
                 <Route exact path="/Exercise" component={Exercise} />
@@ -128,8 +103,9 @@ class App extends Component {
             <Footer />
         </div>
     </Router>
+  </AuthContext.Provider>
   )}
-}      
+    
 
 
 

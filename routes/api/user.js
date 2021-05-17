@@ -23,7 +23,7 @@ router.route('/login')
             console.log("User")
             console.log(dbUser)
             let user = {
-                loggedIn: true,
+                isAuthenticated: true,
                 user: currentUser,
             };
             res.json(user);
@@ -44,7 +44,8 @@ router.route("/login")
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
+      isAuthenticated: true,
     });
   });
 

@@ -25,7 +25,7 @@ class SignupForm extends Component {
       password: this.state.password,
     })
     .then( () => {
-      // props.updateAuth()
+      this.props.updateAuth()
       window.alert ("Signup Successful!");
       window.location.href="/Homepage"
     })

@@ -22,48 +22,22 @@ import { Redirect, Link, useHistory } from 'react-router-dom';
     });
   };
 
-        //  //auth.login
-        // onSubmit = (e) => {
-        //     e.preventDefault();
-        //     console.log('handleSubmit');
-        //     //this.props.login(this.state.email, this.state.password);
-        //     API.login({
-        //         email: this.state.email,
-        //         password: this.state.password
-        //     }).then(response => {
-        //         console.log(response);
-        //           this.props.history.push('/'); 
-        //     });
-        // }
 
 
   onSubmit = e => {
     e.preventDefault();
     if (this.state.email && this.state.password) {
-    API.login({ //this link does not work
+    API.login({ 
       email: this.state.email,
       password: this.state.password,
     })
-//         .then(response => {
-//           console.log("response: ", response);
-//           console.log("RESPONSE.DATA.ID: ", response.data.data.id)
-//         if (response.data.data.id) {
-//           setUserId(response.data.data.id);
-//           history.push('/');
-//         } else {
-//           setHasErrorState(true);
-//         }
-//       })
-//       .catch(err => {
-//         setState({
-//           email: "",
-//           password: ""
-//         });
-//         setHasErrorState(true);
-//         console.log(err);
-//       }
-//       )
-// }
+        .then(response => {
+          this.props.setIsAuthenticated(true)
+          console.log("response: ", response);
+          // window.location.href="/Homepage"
+
+      })
+
 
   }
 }

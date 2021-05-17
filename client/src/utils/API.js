@@ -61,11 +61,11 @@ export default {
 
     //LOGIN AND SIGNUP
     saveSignup: function(signupData) {
-    return axios.post(site + "/api/user/signup", signupData);
+    return axios.post("/api/user/signup", signupData);
      },
 
     login: function(userData) {
-    return axios.post(site + "/api/user/login", userData);
+    return axios.post("/api/user/login", userData);
     },
 
     getUser: function() {
@@ -79,11 +79,20 @@ export default {
       return axios.post('/api/user/logout');
   },
 
+    userLogin: function (userData) {
+      return axiosInstance({
+        method: 'post',
+        url: "/api/user/login",
+        data: userData
+      })
+    },
+
+
     // Check if user is logged in
     userLoggedIn: function() {
       return axiosInstance({
         method: 'get',
-        url: "/api/user/logged-in",
+        url: "/api/user/login",
       })
     },
 
