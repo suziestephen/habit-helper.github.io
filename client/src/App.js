@@ -36,11 +36,11 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
 )
 
 // const AuthButton = withRouter(({ history }) => (
-//   fakeAuth.isAuthenticated === true 
+//   isAuthenticated
 //   ? 
 //   <p>
 //     Welcome! <button onClick={() => {
-//     fakeAuth.signout(() => history.push('/'))
+//     isAuthenticated.signout(() => history.push('/'))
 //     }}> Sign Out 
 //     </button>
 //   </p>
@@ -72,11 +72,6 @@ function App () {
 <AuthContext.Provider value={value}>
   <Router>
         <div className ="main-div">
-          <div className ="navbar">
-             {/* <AuthButton /> */}
-              <li><Link to='/login'>Login Page</Link></li>
-              <li><Link to='/signup'>SignUp Page</Link></li>
-          </div>
 
             <NavBar />
             <Header />
@@ -85,20 +80,17 @@ function App () {
                     <Login {...props} setIsAuthenticated={setIsAuthenticated} />
                 )}
                 />
-            <Route path='/Signup' 
-                render={(props) => (
-                    <Signup {...props} isAuthenticated={true} />
-                )}
-            />
+            <Route path='/Signup' />
+              
+            <Switch>
             <PrivateRoute path='/Homepage' component={Homepage} isAuthenticated={isAuthenticated} />
             <PrivateRoute path='/HabitLog' component={HabitLog} isAuthenticated={isAuthenticated} />
-            <Switch>
-                <Route exact path="/Gratitude" component={Gratitude} />
-                <Route exact path="/Exercise" component={Exercise} />
-                <Route exact path="/Reading" component={Reading} />
-                <Route exact path="/GratitudeLog" component={GratitudeLog} />
-                <Route exact path="/ExerciseLog" component={ExerciseLog} />
-                <Route exact path="/ReadingLog" component={ReadingLog} />
+                <PrivateRoute exact path="/Gratitude" component={Gratitude} isAuthenticated={isAuthenticated}/>
+                <PrivateRoute exact path="/Exercise" component={Exercise} isAuthenticated={isAuthenticated} />
+                <PrivateRoute exact path="/Reading" component={Reading} isAuthenticated={isAuthenticated}/>
+                <PrivateRoute exact path="/GratitudeLog" component={GratitudeLog} isAuthenticated={isAuthenticated} />
+                <PrivateRoute exact path="/ExerciseLog" component={ExerciseLog} isAuthenticated={isAuthenticated}/>
+                <PrivateRoute exact path="/ReadingLog" component={ReadingLog} isAuthenticated={isAuthenticated} />
               </Switch> 
             <Footer />
         </div>
