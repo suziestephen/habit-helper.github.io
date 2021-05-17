@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Card } from "react-bootstrap";
 import GratitudeDisplay from "../components/GratitudeDisplay"
-import TopMenu from "../components/TopMenu/index"
+import TopMenu from "../components/TopMenu/index";
+import { DateTime } from "luxon";
 
 
 class GratitudeLog extends Component {
@@ -23,9 +24,13 @@ componentDidMount() {
 };
 
 renderGratitude(gratitude) {
+     //Luxon date:time
+     const date = DateTime.fromISO(gratitude.dayOf)
+     const formattedDayOf = date.toLocaleString(DateTime.DATE_MED);
+ 
   return <GratitudeDisplay
     gratefulFor={gratitude.gratefulFor}
-    dayOf={gratitude.dayOf}
+    dayOf={formattedDayOf}
   />
 }
 

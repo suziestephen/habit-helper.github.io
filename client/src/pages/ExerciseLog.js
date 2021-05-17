@@ -3,6 +3,8 @@ import API from "../utils/API";
 import { Card } from "react-bootstrap";
 import ExerciseDisplay from "../components/ExerciseDisplay"
 import TopMenu from "../components/TopMenu/index"
+import { DateTime } from "luxon";
+
 
 
 class ExerciseLog extends Component {
@@ -10,6 +12,7 @@ class ExerciseLog extends Component {
   state = {
     result: [],
   };
+
 
 
 componentDidMount() {
@@ -22,11 +25,18 @@ componentDidMount() {
   )
 };
 
+
+
   renderExercise(exercise) {
+    //Luxon date:time
+    const date = DateTime.fromISO(exercise.dayOf)
+    const formattedDayOf = date.toLocaleString(DateTime.DATE_MED);
+    console.log(exercise.dayOf)
+
       return <ExerciseDisplay
         exercise={exercise.exercise}
         located={exercise.located}
-        dayOf={exercise.dayOf}
+        dayOf={formattedDayOf}
       />
     }
 

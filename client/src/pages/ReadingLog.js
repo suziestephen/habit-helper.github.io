@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Card } from "react-bootstrap";
-import ReadingDisplay from "../components/ReadingDisplay"
-import TopMenu from "../components/TopMenu/index"
+import ReadingDisplay from "../components/ReadingDisplay";
+import TopMenu from "../components/TopMenu/index";
+import { DateTime } from "luxon";
 
 
 class ReadingLog extends Component {
@@ -23,10 +24,14 @@ class ReadingLog extends Component {
     };
 
       renderReading(reading) {
+        //Luxon date:time
+     const date = DateTime.fromISO(reading.dayOf)
+     const formattedDayOf = date.toLocaleString(DateTime.DATE_MED);
+ 
           return <ReadingDisplay
             book={reading.book}
             pages={reading.pages}
-            dayOf={reading.dayOf}
+            dayOf={formattedDayOf}
           />
         }
 
