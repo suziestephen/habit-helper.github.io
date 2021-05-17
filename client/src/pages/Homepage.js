@@ -1,14 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 // import { Col, Row, Container } from "../components/Grid";
 import SideMenu from "../components/SideMenu/index";
 
 
-const Homepage = () => {
-  return (
+class Homepage extends Component {
+render () {
+    return (
 
-          <SideMenu />
+            <SideMenu />
 
-  );
-};
+    );
+  };
+}
 
 export default Homepage;

@@ -1,15 +1,17 @@
-import React from "react";
+import React, {Component} from "react";
 // import { Col, Row, Container } from "../components/Grid";
 import TopMenu from "../components/TopMenu/index"
 
 
 
-const HabitLog = () => {
-  return (
+class HabitLog extends Component {
+render() {
+    return (
 
-          <TopMenu />
+            <TopMenu />
 
-  );
-};
+    );
+  };
+}
 
 export default HabitLog;
