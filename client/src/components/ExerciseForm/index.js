@@ -26,6 +26,8 @@ class ExerciseForm extends Component {
       located: this.state.located,
       dayOf: this.state.dayOf,
     });
+    this.setState({exercise:"", located: "", dayOf: ""})
+    window.alert ("Entry Submitted!");
   };
 
   render() {
@@ -55,7 +57,7 @@ class ExerciseForm extends Component {
               onChange={e => this.change(e)}
             />
           <br />
-            <Button onClick={e => this.onSubmit(e)}>Submit</Button>
+            <Button onClick={e => this.onSubmit(e)} >Submit</Button>
         </Form>
       </div>
       );

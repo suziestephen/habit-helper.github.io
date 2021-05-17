@@ -24,6 +24,8 @@ class GratitudeForm extends Component {
       gratefulFor: this.state.gratefulFor,
       dayOf: this.state.dayOf,
     });
+    this.setState({gratefulFor:"", dayOf: ""})
+    window.alert ("Entry Submitted!");
   };
 
   render() {

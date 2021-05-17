@@ -26,6 +26,8 @@ class ReadingForm extends Component {
       pages: this.state.pages,
       dayOf: this.state.dayOf,
     });
+    this.setState({book:"", pages: "", dayOf: ""})
+    window.alert ("Entry Submitted!");
   };
 
   render() {

@@ -26,6 +26,7 @@ class SignupForm extends Component {
     })
     .then( () => {
       // props.updateAuth()
+      window.alert ("Signup Successful!");
       window.location.href="/Homepage"
     })
   };
@@ -58,7 +59,7 @@ class SignupForm extends Component {
             </label>
           <br />
           <br />
-            <Button onClick={e => this.onSubmit(e)}>Submit</Button>
+            <Button type="reset" onClick={e => this.onSubmit(e)}>Submit</Button>
         </Form>
       </div>
       );
