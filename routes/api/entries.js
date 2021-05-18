@@ -15,7 +15,12 @@ const db = require("../..//models");
 
     router.route("/reading")
     .get((req, res) => {
-        db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
+        db.Reading.findAll({
+            where: {
+                userId: userId
+            }
+        })
+        .then((dbReading) => res.json(dbReading));
     })
 
     router.route("/exercise")

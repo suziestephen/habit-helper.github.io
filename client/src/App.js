@@ -69,9 +69,9 @@ function App () {
                       {isAuthenticated ? (
                       <div>
                          <Switch>
-                            <PrivateRoute path='/' component={Homepage} isAuthenticated={isAuthenticated} /> 
-                            <PrivateRoute path='/Homepage' component={Homepage} isAuthenticated={isAuthenticated} /> 
-                            <PrivateRoute path='/HabitLog' component={HabitLog} isAuthenticated={isAuthenticated} /> 
+                            <PrivateRoute exact path='/' component={Homepage} isAuthenticated={isAuthenticated} /> 
+                            <PrivateRoute exact path='/Homepage' component={Homepage} isAuthenticated={isAuthenticated} /> 
+                            <PrivateRoute exact path='/HabitLog' component={HabitLog} isAuthenticated={isAuthenticated} /> 
                                 <PrivateRoute exact path="/Gratitude" component={Gratitude} isAuthenticated={isAuthenticated}/> 
                                 <PrivateRoute exact path="/Exercise" component={Exercise} isAuthenticated={isAuthenticated} /> 
                                 <PrivateRoute exact path="/Reading" component={Reading} isAuthenticated={isAuthenticated}/> 
@@ -82,8 +82,8 @@ function App () {
                           </div> 
                           )
                           : <Login />
-                          } 
-                     </Route>      
+                          }     
+                      </Route>  
                 </Switch>       
             <Footer />
         </div>
