@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const passport = require("../../config/passport");
-const User = require('../../models/user');
-const db = require("../..//models");
-const bcrypt = require('bcrypt');
+const db = require("../../models");
 
 
 // Matches with POST /api/user/login
