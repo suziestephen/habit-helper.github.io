@@ -9,7 +9,7 @@ class SideMenu extends Component {
   render() {
     return (
       <div className="menu-div">
-      <Container className="menu-container">
+      <Container className="display-container">
         <h2>Select a habit and create an entry for today</h2>
         <br />
           <Row>

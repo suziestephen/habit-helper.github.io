@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, Redirect, } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header.js";
-import Logout from "./components/Logout/Logout.js";
 import Footer from "./components/Footer/Footer";
 import Homepage from "./pages/Homepage";
 import HabitLog from "./pages/HabitLog";
@@ -23,7 +22,7 @@ import "./app.css"
 
 const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
   <Route {...rest} render={(props) => (
-    isAuthenticated 
+    isAuthenticated
     ? <Component {...props} />
     : <Redirect to={{
       pathname: '/login',
@@ -63,12 +62,9 @@ function App () {
                   <Route exact path='/Signup'>
                     <Signup />
                   </Route>
-
                   <Route exact path='/Login'>
                     <Login />
-                  </Route>
-          
-                    
+                  </Route>  
                     <Route path='/' />
                       {isAuthenticated ? (
                       <div>
@@ -86,14 +82,9 @@ function App () {
                        </div> 
                       )
                       : <Login />
-                      }
-             
-              </Switch> 
-              
+                      }     
+              </Switch>         
             <Footer />
-            <Logout />
-              
-
         </div>
     </Router>
   </AuthContext.Provider>

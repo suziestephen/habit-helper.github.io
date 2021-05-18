@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
+import { Form, Button } from "react-bootstrap";
+
 
 function SignUp(){
     let history = useHistory();
@@ -34,7 +36,7 @@ function SignUp(){
     }
     
     return (
-            <form>
+            <Form>
             <input type="text"
                 onChange={handleInputChange}
                 name="email"
@@ -51,13 +53,13 @@ function SignUp(){
                 required
                 value={formState.password}
             />
-            <button
+            <Button className="button-1"
                 disabled={!(formState.email && formState.password)}
                 onClick={handleFormSubmit}
             >
                 Create account
-            </button>
-          </form>
+            </Button>
+          </Form>
     );
 }
 

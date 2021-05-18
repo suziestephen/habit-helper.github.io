@@ -2,11 +2,21 @@ import React from "react";
 
 function ReadingDisplay(props) {
   return (
-    <div className="text-center">
-      <h3>Book: {props.book}</h3>
-      <h4>Pages: {props.pages}</h4>
-      <h5>Date: {props.dayOf}</h5>
+    <div>
+    <div className="display-container">
+        <div className="title">
+          Book: {props.book}
+        </div>
+
+        <div className="sub-title">
+          Pages: {props.pages}
+        </div>
+
+        <div className="date">
+          Date: {props.dayOf}
+        </div>
     </div>
+  </div>
   );
 }
 

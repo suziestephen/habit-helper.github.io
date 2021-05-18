@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import { AuthContext } from "../../utils/authContext";
+import { Form, Button } from "react-bootstrap";
 
 function Login() {
   // This allows us to set the user's authentication state in the context object
@@ -55,32 +56,40 @@ function Login() {
   }
 
   return (
-    <form>
-      <input
-        type="email"
-        onChange={handleInputChange}
-        name="email"
-        label="Email"
-        placeholder="Email (required)"
-        value={formState.email}
-      />
-      <input
-        type="password"
-        onChange={handleInputChange}
-        name="password"
-        label="Password"
-        placeholder="Password (required)"
-        value={formState.password}
-      />
-      <button
-        disabled={!(formState.email && formState.password)}
-        onClick={handleFormSubmit}
-      >
-        Log in
-          </button>
-          
-      { hasErrorState ? <strong>Invalid details, try again</strong> : '' }
-    </form>
+      <div className="display-container">
+              <h2>Login to view the site</h2>
+            <br />
+          <Form className="form">
+            <input
+              type="email"
+              onChange={handleInputChange}
+              name="email"
+              label="Email"
+              placeholder="Email (required)"
+              value={formState.email}
+            />
+            <br />
+            <br />
+            <input
+              type="password"
+              onChange={handleInputChange}
+              name="password"
+              label="Password"
+              placeholder="Password (required)"
+              value={formState.password}
+            />
+            <br />
+            <br />
+            <Button
+              disabled={!(formState.email && formState.password)}
+              onClick={handleFormSubmit}
+            >
+              Log in
+                </Button>
+                
+            { hasErrorState ? <strong>Invalid details, try again</strong> : '' }
+          </Form>
+      </div>
   );
 }
 

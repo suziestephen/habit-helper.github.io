@@ -9,7 +9,7 @@ class TopMenu extends Component {
   render() {
     return (
       <div className="menu-div">
-      <Container className="menu-container">
+      <Container className="display-container">
         <h2>My Habits</h2>
         <br />
           <Row>
