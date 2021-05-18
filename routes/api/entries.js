@@ -21,7 +21,7 @@ const db = require("../..//models");
     .get((req, res) => {
         db.Reading.findAll({
             where: {
-                userId: id
+                userId: userId
             }
         })
         .then((dbReading) => res.json(dbReading));
@@ -43,7 +43,7 @@ const db = require("../..//models");
     .post((req, res) => {
         console.log(req.user);
         db.Gratitude.create({
-            userId: req.user.id,
+            userId: req.user.userId,
             gratefulFor: req.body.gratefulFor,
             dayOf: req.body.dayOf,
         }).then((dbGratitude) => res.json(dbGratitude));
@@ -52,9 +52,9 @@ const db = require("../..//models");
     //     // POST route for saving a new reading entry
     router.route("/reading")
     .post((req, res) => {
-        console.log(req.users);
+        console.log(req.user);
         db.Reading.create({
-            userId: req.users.id,
+            userId: req.user.userId,
             book: req.body.book,
             pages: req.body.pages,
             dayOf: req.body.dayOf,

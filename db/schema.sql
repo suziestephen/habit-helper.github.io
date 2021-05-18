@@ -31,7 +31,7 @@ exercise VARCHAR(255) NOT NULL,
 located VARCHAR(255) NOT NULL,
 dayOf DATE, 
 PRIMARY KEY (id),
-FOREIGN KEY (userId) references users (id)
+FOREIGN KEY (`userId`) references `users` (`id`)
 );
 
 CREATE TABLE users(
