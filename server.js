@@ -9,6 +9,10 @@ const db = require('./models');
 
 
 const app = express();
+
+//Cors
+app.use(cors())
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,8 +33,7 @@ app.use(passport.session());
 
 
 
-//Cors
-app.use(cors())
+
  
 
 
