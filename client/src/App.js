@@ -1,16 +1,13 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, Redirect, withRouter } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header.js";
 import Wrapper from "./components/Wrapper/Wrapper.js";
 import Footer from "./components/Footer/Footer";
-import LoginForm from "./components/Login/LoginForm"
 import Homepage from "./pages/Homepage";
 import HabitLog from "./pages/HabitLog";
 import Login from "./pages/Login";
-
 import "./app.css"
-// import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Gratitude from "./pages/Gratitude";
 import Exercise from "./pages/Exercise";
