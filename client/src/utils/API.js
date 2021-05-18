@@ -82,10 +82,14 @@ export default {
   
   
 
-    logout: function() {
-      console.log('logout');
-      return axios.post('/api/user/logout');
-  },
+    userLogout: function() {
+      return axiosInstance({
+        method: 'get',
+        url: "/api/user/logout",
+      })
+    },
+
+  
 
     userLogin: function (userData) {
       return axiosInstance({
