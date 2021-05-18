@@ -76,24 +76,20 @@ function App () {
             <NavBar />
             <Header />
 
-            <Switch>
+           
                   <Route exact path='/Signup'>
                     <Signup />
                   </Route>
 
                   <Route exact path='/Login'>
-
-
-                  {/* // render={(props) => (
-                  //         <Login {...props} setIsAuthenticated={setIsAuthenticated} />
-                  //      )} */}
                     <Login />
                   </Route>
                
                     
-                    <Route path='/' />
+                    <Route path='/Homepage' />
                       {isAuthenticated ? (
                       <div>
+                         <Switch>
                         <PrivateRoute path='/Homepage' component={Homepage} isAuthenticated={isAuthenticated} /> 
                         <PrivateRoute path='/HabitLog' component={HabitLog} isAuthenticated={isAuthenticated} /> 
                             <PrivateRoute exact path="/Gratitude" component={Gratitude} isAuthenticated={isAuthenticated}/> 
@@ -102,13 +98,14 @@ function App () {
                             <PrivateRoute exact path="/GratitudeLog" component={GratitudeLog} isAuthenticated={isAuthenticated} /> 
                             <PrivateRoute exact path="/ExerciseLog" component={ExerciseLog} isAuthenticated={isAuthenticated}/> 
                             <PrivateRoute exact path="/ReadingLog" component={ReadingLog} isAuthenticated={isAuthenticated} /> 
+                          </Switch> 
                        </div> 
                       )
                       : <Login />
                       }
              
 
-              </Switch> 
+      
             <Footer />
         </div>
     </Router>

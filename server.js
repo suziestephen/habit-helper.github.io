@@ -11,7 +11,11 @@ const db = require('./models');
 const app = express();
 
 //Cors
-app.use(cors())
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

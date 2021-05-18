@@ -6,7 +6,7 @@ import API from "../utils/API";
 
 
 //login page
-class Login extends React.Component {
+class Login extends Component {
 
     render(){
     return (
