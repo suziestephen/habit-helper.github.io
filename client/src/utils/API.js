@@ -60,18 +60,26 @@ export default {
 
 
     //LOGIN AND SIGNUP
-    saveSignup: function(signupData) {
-    return axios.post("/api/user/signup", signupData);
-     },
+    // saveSignup: function(signupData) {
+    // return axios.post("/api/user/signup", signupData);
+    //  },
 
-    login: function(userData) {
-    return axios.post("/api/user/login", userData);
+    // login: function(userData) {
+    // return axios.post("/api/user/login", userData);
+    // },
+
+    // getUser: function() {
+    //   return axios.get("/api/user/login");
+    // },
+
+    userSignup: function (userData) {
+      return axiosInstance({
+        method: 'post',
+        url: "/api/user/signup",
+        data: userData
+      })
     },
-
-    getUser: function() {
-      return axios.get("/api/user/login");
-    },
-
+  
   
 
     logout: function() {

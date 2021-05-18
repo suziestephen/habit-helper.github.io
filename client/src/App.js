@@ -81,12 +81,15 @@ function App () {
                     <Signup />
                   </Route>
 
-                  <Route exact path='/Login' 
-                  render={(props) => (
-                          <Login {...props} setIsAuthenticated={setIsAuthenticated} />
-                       )}
-                    />
-                
+                  <Route exact path='/Login'>
+
+
+                  {/* // render={(props) => (
+                  //         <Login {...props} setIsAuthenticated={setIsAuthenticated} />
+                  //      )} */}
+                    <Login />
+                  </Route>
+               
                     
                     <Route path='/' />
                       {isAuthenticated ? (

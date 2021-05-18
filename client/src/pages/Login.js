@@ -12,7 +12,8 @@ class Login extends React.Component {
     return (
     
         <div>
-            <LoginForm setIsAuthenticated={this.props.setIsAuthenticated}/>
+            <LoginForm />
+            {/* <LoginForm setIsAuthenticated={this.props.setIsAuthenticated}/> */}
         </div>
         
         )
