@@ -36,7 +36,13 @@ function SignUp(){
     }
     
     return (
-            <Form>
+      <div className="entry-container">
+          <div className="entry-heading">
+              Sign up to access your Habit Helper
+          </div>
+            <br />
+          <Form className="entry-form">
+          <label>
             <input type="text"
                 onChange={handleInputChange}
                 name="email"
@@ -45,6 +51,8 @@ function SignUp(){
                 required
                 value={formState.email}
             />
+          </label>
+          <label>
             <input type="password"
                 onChange={handleInputChange}
                 name="password"
@@ -53,14 +61,16 @@ function SignUp(){
                 required
                 value={formState.password}
             />
+          </label>
             <br/>
-            <Button className="button-1"
+            <Button size="sm"
                 disabled={!(formState.email && formState.password)}
                 onClick={handleFormSubmit}
             >
                 Create account
             </Button>
           </Form>
+      </div>
     );
 }
 

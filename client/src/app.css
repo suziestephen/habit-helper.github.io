@@ -8,36 +8,21 @@
     font-family: Economica
 }
 
-.button-1 {
-    background-color: #396043;
+Button {
+    background-color: #cca677;
     font-family: Source Sans Pro;
 }
- 
-/* .h1 {
-    font-family: Economica;
-    color: #a3a2d1;
-}
 
-.h3 {
-    font-family: Economica;
-    color: #ca0000;
-} */
 
-/* Login header */
 
-.login-header {
-    background-color: #396043;
-    font-family: Economica;
-    text-decoration: none;
-    color: #cca677
-
-}
 
 /* Nav Bar */
 
 nav {
     background-color: #396043
 }
+
+
 
 a {
     font-family: Economica;
@@ -49,6 +34,29 @@ a {
     text-decoration: underline;
     color: #E1C099  
 }
+
+/* Menus */
+
+h2 {
+    size: 20px;
+    color: #352e34;
+    text-align: center;
+}
+
+
+.menu-container {
+  background: #fdf3fd; 
+  padding: 40px;
+  width: 300px;
+}
+
+.menu-button {
+    background-color: #fdf3fd;
+    display: block;
+    margin: 0 auto; 
+    outline: #cca677;
+}
+
 
 
 
@@ -69,6 +77,36 @@ a {
 .header-container {
     padding: 40px;
     text-align: center;
+}
+
+/* Entry forms */
+
+.entry-heading {
+    font-family: Economica;
+    color: #396043
+
+}
+
+.entry-container{
+    background-color: #fffaf5;
+    text-align: center;
+    position: relative
+}
+
+.entry-form{
+    display: block;
+    margin: 0 auto; 
+    background-color: #fffaf5;
+}
+
+.entry-field{
+    height: 100px;
+    width: 300px;
+}
+
+.entry-field-sm{
+    height: 30px;
+    width: 300px;
 }
 
 /* Habit display */

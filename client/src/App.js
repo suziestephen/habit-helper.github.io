@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link, Redirect, } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer";

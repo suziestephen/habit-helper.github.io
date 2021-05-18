@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import "./reading.css"
+import { Form, Button } from "react-bootstrap";
 
 
 
@@ -33,11 +32,14 @@ class ReadingForm extends Component {
   render() {
     return (
       <div className="entry-container">
-        <h2>What are you reading at the moment?</h2>
+         <div className="entry-heading">
+             What are you reading at the moment?
+        </div>
       <br />
         <Form className="entry-form">
           <label>
               <input 
+                className="entry-field-sm"
                 name="book"
                 placeholder='Book title' 
                 value={this.state.book} 
@@ -47,6 +49,7 @@ class ReadingForm extends Component {
           <br />
           <label>
               <input 
+                className="entry-field-sm"
                 name="pages"
                 placeholder='Number of pages' 
                 value={this.state.pages} 
@@ -56,6 +59,7 @@ class ReadingForm extends Component {
           <br />
           <label>
               <input 
+                className="entry-field-sm"
                 name="dayOf"
                 placeholder='YYYY/MM/DD' 
                 value={this.state.dayOf} 
@@ -63,7 +67,7 @@ class ReadingForm extends Component {
               />
             </label>
           <br />
-            <Button onClick={e => this.onSubmit(e)}>Submit</Button>
+            <Button variant="outline-info" onClick={e => this.onSubmit(e)}>Submit</Button>
         </Form>
       </div>
       );

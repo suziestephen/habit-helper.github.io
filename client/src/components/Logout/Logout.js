@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import API from "../../utils/API"
 
 
@@ -11,9 +12,10 @@ function Logout() {
       history.go(0); 
     }
   
-    return <div>You're logged in!<button type="button" onClick={logOut}>
+    return <div>You're logged in!
+    <Button size="sm" variant="outline-secondary" onClick={logOut}>
       Logout
-   </button></div>;
+   </Button></div>;
   }
 
   export default Logout;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Card } from "react-bootstrap";
-import GratitudeDisplay from "../components/GratitudeDisplay"
+import GratitudeDisplay from "../GratitudeDisplay/GratitudeDisplay"
 import TopMenu from "../components/TopMenu/index";
 import { DateTime } from "luxon";
 

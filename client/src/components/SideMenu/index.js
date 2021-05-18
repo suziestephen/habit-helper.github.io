@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./sidemenu.css"
 
 
 
@@ -10,27 +9,27 @@ class SideMenu extends Component {
     return (
       <div className="menu-div">
       <Container className="display-container">
-        <h2>Select a habit and create an entry for today</h2>
+        <h2>Enter Your Daily Habits</h2>
         <br />
           <Row>
             <Button className="menu-button">
-              <Link to="/Gratitude"> Gratitude </Link>
+              <Link to="/Gratitude"> Enter Your Gratitude  </Link>
             </Button>
           </Row>
           <br />
           <Row>
             <Button className="menu-button">
-              <Link to="/Exercise"> Exercise </Link>
+              <Link to="/Exercise"> Enter Your Exercise </Link>
             </Button>
           </Row> 
           <br />
           <Row>
             <Button className="menu-button">
-              <Link to="/Reading"> Reading </Link>
+              <Link to="/Reading"> Enter Your Reading  </Link>
             </Button>
           </Row>
       </Container>
-      </div>
+       </div>
 
   
 

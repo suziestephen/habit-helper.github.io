@@ -57,10 +57,14 @@ function Login() {
 
   return (
       <div className="display-container">
-              <h2>Login to view the site</h2>
+            <div className="entry-heading">
+              Login to view the site
+            </div>
             <br />
-          <Form className="form">
+          <Form className="form" >
+       
             <input
+
               type="email"
               onChange={handleInputChange}
               name="email"
@@ -68,8 +72,10 @@ function Login() {
               placeholder="Email (required)"
               value={formState.email}
             />
+    
             <br />
-            <br />
+  
+          <label>
             <input
               type="password"
               onChange={handleInputChange}
@@ -78,20 +84,24 @@ function Login() {
               placeholder="Password (required)"
               value={formState.password}
             />
+          </label>
             <br />
-            <br />
-            <Button
-              disabled={!(formState.email && formState.password)}
-              onClick={handleFormSubmit}
-            >
-              Log in
-                </Button>
+
+            <Button size="sm"
+                disabled={!(formState.email && formState.password)}
+                onClick={handleFormSubmit}
+              >
+                Log in
+              </Button>
                 
             { hasErrorState ? <strong>Invalid details, try again</strong> : '' }
 
-            <Button className="button-2"> 
-           <Link to="/signup" float="middle">Not a user? Signup here first</Link> 
+            <Button size="sm" variant="outline-secondary">
+              
+              Not a user? Signup here first
+              <Link to="/signup" float="middle"></Link> 
             </Button>
+     
           </Form>
       </div>
   );
