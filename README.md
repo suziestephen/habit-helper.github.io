@@ -32,11 +32,11 @@ Three different self-care habits to keep track of and keep you on course to impr
 
 
 ## User Story
-AS AN avid movie watcher and lover <br>
-I WANT to be able to create a list of movies that I have seen. <br>
-SO THAT I can leave my reviews for those movies <br>
-SO THAT I can refer movies to my friends <br>
-OR keep a log of movies I have watched and remember which ones I liked or disliked.
+AS someone who cares about improving my daily routine <br>
+I WANT to be able to enter when I have completed my daily habits. <br>
+SO THAT I can view records of my entries <br>
+SO THAT I can reflect on my progress <br>
+OR keep track of how many days I have completed that habit.
 
 
 ## Acceptance Criteria
