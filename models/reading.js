@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Reading = sequelize.define('Reading', {
       
+      
 
       book: {
         type: DataTypes.TEXT,
