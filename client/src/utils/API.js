@@ -100,7 +100,7 @@ export default {
     userLoggedIn: function() {
       return axiosInstance({
         method: 'get',
-        url: "/api/user/login",
+        url: "/api/user/logged-in",
       })
     },
 
