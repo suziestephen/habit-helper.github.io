@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Link, Redirect, useHistory } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header.js";
-import Wrapper from "./components/Wrapper/Wrapper.js";
+import Logout from "./components/Logout/Logout.js";
 import Footer from "./components/Footer/Footer";
 import Homepage from "./pages/Homepage";
 import HabitLog from "./pages/HabitLog";
 import Login from "./pages/Login";
-import "./app.css"
 import Signup from "./pages/Signup";
 import Gratitude from "./pages/Gratitude";
 import Exercise from "./pages/Exercise";
@@ -17,6 +16,7 @@ import ExerciseLog from "./pages/ExerciseLog";
 import ReadingLog from "./pages/ReadingLog";
 import { AuthContext } from "./utils/authContext";
 import API from "./utils/API";
+import "./app.css"
 
 
 
@@ -34,17 +34,6 @@ const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
 
 
 
-export function Logout() {
-  const history = useHistory();
-  function logOut() {
-    API.userLogout();
-    history.go(0); 
-  }
-
-  return <div>You're logged in!<button type="button" onClick={logOut}>
-    Logout
- </button></div>;
-}
 
 function App () {
 
@@ -100,8 +89,11 @@ function App () {
                       }
              
               </Switch> 
-              <Logout />
+              
             <Footer />
+            <Logout />
+              
+
         </div>
     </Router>
   </AuthContext.Provider>
