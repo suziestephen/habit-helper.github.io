@@ -57,12 +57,21 @@ THEN I am able to view my habit entries <br>
 WHEN I want to leave the site<br>
 THEN I am able to logout <br>
 </i>
-
+<br>
 
 
 ## Mockups
+![homescreen](https://user-images.githubusercontent.com/74234842/118614539-38114280-b803-11eb-8cdd-75978907d495.png)
+<br> 
+<br>
 
+![entryscreen](https://user-images.githubusercontent.com/74234842/118614578-419aaa80-b803-11eb-9a67-4bcccd8fcc26.png)
 
+<br>
+<br>
+
+![logs](https://user-images.githubusercontent.com/74234842/118614618-4d866c80-b803-11eb-9a4e-7c46b4cff8d2.png)
+<br>
 
 ## Built with
 - [LucidChart](https://www.adobe.com/au/products/xd.html) (Wireframes)
