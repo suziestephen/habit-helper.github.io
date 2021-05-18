@@ -1,5 +1,5 @@
 import axios from "axios";
-const site = "http://localhost:3001";
+const site =  window.location.hostname.includes('localhost') ? "http://localhost:3000" : "";
 
 const axiosInstance = axios.create({
   baseURL: window.location.host.includes('localhost') ? 'http://localhost:3001' : '',
