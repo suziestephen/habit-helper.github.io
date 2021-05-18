@@ -73,7 +73,7 @@ function App () {
             <NavBar />
             <Header />
 
-           
+            <Switch>
                   <Route exact path='/Signup'>
                     <Signup />
                   </Route>
@@ -81,12 +81,13 @@ function App () {
                   <Route exact path='/Login'>
                     <Login />
                   </Route>
-               
+            </Switch> 
                     
-                    <Route path='/Homepage' />
+                    <Route path='/' />
                       {isAuthenticated ? (
                       <div>
                          <Switch>
+                        <PrivateRoute path='/' component={Homepage} isAuthenticated={isAuthenticated} /> 
                         <PrivateRoute path='/Homepage' component={Homepage} isAuthenticated={isAuthenticated} /> 
                         <PrivateRoute path='/HabitLog' component={HabitLog} isAuthenticated={isAuthenticated} /> 
                             <PrivateRoute exact path="/Gratitude" component={Gratitude} isAuthenticated={isAuthenticated}/> 
