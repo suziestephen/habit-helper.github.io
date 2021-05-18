@@ -81,7 +81,7 @@ function App () {
                   <Route exact path='/Login'>
                     <Login />
                   </Route>
-            </Switch> 
+          
                     
                     <Route path='/' />
                       {isAuthenticated ? (
@@ -102,7 +102,7 @@ function App () {
                       : <Login />
                       }
              
-
+              </Switch> 
       
             <Footer />
         </div>
