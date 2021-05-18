@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const passport = require("../../config/passport");
 const User = require('../../models/user');
+const db = require("../..//models");
 const bcrypt = require('bcrypt');
 
 
@@ -21,9 +22,9 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   // If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   router.post("/signup", async (req, res) => {
-    User.create({
+    db.User.create({
       email: req.body.email,
-      password: await bcrypt.hash(req.body.password, 10)
+      password: req.body.password
     })
       .then((user)=>{
         
