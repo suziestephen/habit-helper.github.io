@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import API from "../../utils/API"
 import { AuthContext } from "../../utils/authContext";
 import { Form, Button } from "react-bootstrap";
