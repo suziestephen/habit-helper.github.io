@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import "./gratefulform.css"
 
 
@@ -30,12 +30,10 @@ class GratitudeForm extends Component {
 
   render() {
     return (
-      
-      <div className="entry-container">
+      <div className="display-container">
         <h2>Write down some things you were grateful for today....</h2>
         <br />
-        <Form className="entry-form">
-        <label>
+        <Form className="form">
               <input 
                 className="gratefulFor"
                 name="gratefulFor"
@@ -43,19 +41,15 @@ class GratitudeForm extends Component {
                 value={this.state.gratefulFor} 
                 onChange={e => this.change(e)}
               />
-            </label>
             <br />
-
-            <label>
               <input 
                 name="dayOf"
                 placeholder='YYYY/MM/DD' 
                 value={this.state.dayOf} 
                 onChange={e => this.change(e)}
               />
-            </label>
             <br />
-          <Button div className="entry-button" onClick={e => this.onSubmit(e)}>Submit</Button>
+          <Button onClick={e => this.onSubmit(e)}>Submit</Button>
         </Form>
       </div>
       );

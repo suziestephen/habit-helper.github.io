@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import "./exercise.css"
 
 

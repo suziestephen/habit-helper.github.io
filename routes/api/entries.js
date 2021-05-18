@@ -9,7 +9,11 @@ const db = require("../..//models");
 
     router.route("/gratitude")
     .get((req, res) => {
-        db.Gratitude.findAll({}).
+        db.Gratitude.findAll({
+            where: {
+                userId: userId
+            }
+        }).
         then((dbGratitude) => res.json(dbGratitude));
     })
 
@@ -17,7 +21,7 @@ const db = require("../..//models");
     .get((req, res) => {
         db.Reading.findAll({
             where: {
-                userId: userId
+                userId: id
             }
         })
         .then((dbReading) => res.json(dbReading));
@@ -25,37 +29,32 @@ const db = require("../..//models");
 
     router.route("/exercise")
     .get((req, res) => {
-        db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
+        db.Exercise.findAll({  
+            where: {
+            userId: id
+        }
+        })
+        .then((dbExercise) => res.json(dbExercise));
     })
 
+
+    // POST route for saving a new reading entry
     router.route("/gratitude")
     .post((req, res) => {
-        console.log(req.body);
+        console.log(req.user);
         db.Gratitude.create({
+            userId: req.user.id,
             gratefulFor: req.body.gratefulFor,
             dayOf: req.body.dayOf,
         }).then((dbGratitude) => res.json(dbGratitude));
     })
 
-    // CHECK GET route for getting the reading entries
-    router.route("/reading")
-    .get((req, res) => {
-        db.Reading.findAll({}).then((dbReading) => res.json(dbReading));
-    })
-
-    // CHECK GET route for getting the exercise entries
-    router.route("/exercise")
-    .get((req, res) => {
-        db.Exercise.findAll({}).then((dbExercise) => res.json(dbExercise));
-    })
-
-
-
     //     // POST route for saving a new reading entry
     router.route("/reading")
     .post((req, res) => {
-        console.log(req.body);
+        console.log(req.users);
         db.Reading.create({
+            userId: req.users.id,
             book: req.body.book,
             pages: req.body.pages,
             dayOf: req.body.dayOf,
