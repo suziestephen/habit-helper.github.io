@@ -61,16 +61,18 @@ THEN I am able to logout <br>
 
 
 ## Mockups
-![homescreen](https://user-images.githubusercontent.com/74234842/118614539-38114280-b803-11eb-8cdd-75978907d495.png)
+![homescreen](https://user-images.githubusercontent.com/74234842/118614862-86264600-b803-11eb-89ac-c11afd855e00.png)
 <br> 
 <br>
 
-![entryscreen](https://user-images.githubusercontent.com/74234842/118614578-419aaa80-b803-11eb-9a67-4bcccd8fcc26.png)
+
+![entryscreen](https://user-images.githubusercontent.com/74234842/118614876-8a526380-b803-11eb-92f1-ca89b9a51ca6.png)
+
 
 <br>
 <br>
 
-![logs](https://user-images.githubusercontent.com/74234842/118614618-4d866c80-b803-11eb-9a4e-7c46b4cff8d2.png)
+![logs](https://user-images.githubusercontent.com/74234842/118614849-83c3ec00-b803-11eb-933c-6b687f6d49fb.png)
 <br>
 
 ## Built with
