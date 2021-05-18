@@ -88,6 +88,10 @@ function Login() {
                 </Button>
                 
             { hasErrorState ? <strong>Invalid details, try again</strong> : '' }
+
+            <Button className="button-2"> 
+           <Link to="/signup" float="middle">Not a user? Signup here first</Link> 
+            </Button>
           </Form>
       </div>
   );
