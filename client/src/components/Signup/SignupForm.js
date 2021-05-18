@@ -53,6 +53,7 @@ function SignUp(){
                 required
                 value={formState.password}
             />
+            <br/>
             <Button className="button-1"
                 disabled={!(formState.email && formState.password)}
                 onClick={handleFormSubmit}

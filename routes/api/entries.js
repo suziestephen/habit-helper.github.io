@@ -9,21 +9,13 @@ const db = require("../..//models");
 
     router.route("/gratitude")
     .get((req, res) => {
-        db.Gratitude.findAll({
-            // where: {
-            //     userId: userId
-            // }
-        }).
+        db.Gratitude.findAll({}).
         then((dbGratitude) => res.json(dbGratitude));
     })
 
     router.route("/reading")
     .get((req, res) => {
-        db.Reading.findAll({
-            // where: {
-            //     userId: userId
-            // }
-        })
+        db.Reading.findAll({})
         .then((dbReading) => res.json(dbReading));
     })
 
