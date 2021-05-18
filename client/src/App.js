@@ -59,7 +59,6 @@ function App () {
     API.userLoggedIn().then(response => {
       console.log(response.data)
       setIsAuthenticated(response.data.isAuthenticated)
-      // if (isAuthenticated){window.location.href="/Homepage"};
     })
   }, []);
 

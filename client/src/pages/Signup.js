@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SignupForm from "../components/Signup/SignupForm";
-import API from "../utils/API";
+
 
 
 
